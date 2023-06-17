@@ -36,7 +36,7 @@ function confirmation()
 						<td><?php echo $row["customer_name"]?></td>
 						<td><?php echo $row["customer_email"]?></td>
                         <td><?php echo $row["customer_phone_number"]?></td>
-                        <td><?php echo $row["customer_registe_date"]?></td>
+                        <td><?php echo $row["customer_register_date"]?></td>
                         <td><?php echo $row["customer_password"]?></td>
 						
 						<td><a href="edit.php?edit&code=<?php echo $row["customer_id"];?>">Edit</a></td>
