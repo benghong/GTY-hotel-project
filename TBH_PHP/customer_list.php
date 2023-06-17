@@ -39,7 +39,7 @@ function confirmation()
                         <td><?php echo $row["customer_register_date"]?></td>
                         <td><?php echo $row["customer_password"]?></td>
 						
-						<td><a href="edit.php?edit&code=<?php echo $row["customer_id"];?>">Edit</a></td>
+						<td><a href="edit_customer.php?edit&code=<?php echo $row["customer_id"];?>">Edit</a></td>
 						<td><a href="customer_list.php?del&code=<?php echo $row ["customer_id"];?>" onclick="return confirmation();">Delete</a></td>
 			<?php
 				}	
