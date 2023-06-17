@@ -38,6 +38,7 @@ if (isset($_POST["savebtn"]))
     $rdetails=$_POST["room_details"];
 	
 	
+	
 	$result = mysqli_query($connect,"SELECT * from room where room_code = '$rcode'" );
 	$count=mysqli_num_rows($result);
 	
