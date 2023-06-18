@@ -50,6 +50,7 @@
           <li> <a href="#shop">offers</a> </li>
           <li> <a href="#testimonials">Review</a> </li>
           <li> <a href="#gallary">gallery</a> </li>
+          <li> <a href="bookingform.php">booking</a> </li>
           <li> <a href="#contact">contact</a> </li>
          
           
@@ -610,7 +611,7 @@
 
   <footer>
     
-
+  <section class="contact top" id="contact">
       <div class="content grid  top">
         <div class="box">
           <div class="logo">

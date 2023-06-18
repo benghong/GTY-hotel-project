@@ -53,8 +53,8 @@ body {
 	}
 	
 	header ul li a:hover {
-	  color: #C1B086;
-	}
+		color: #C1B086;
+	  }
 	
 	@media only screen and (max-width: 768px) {
 	  header ul {
@@ -184,7 +184,7 @@ body {
   
   .container {
 	  
-	  max-width: 1700px;
+	  max-width: 1100px;
 	  margin: 0px auto;
 	  box-shadow: 10px 15px 20px rgba(0, 0, 0, .1);
 	  display: flex;
@@ -193,13 +193,13 @@ body {
   
   .container-time {
 	  background-color: rgba(0, 0, 0, .95);
-	  padding: 50px;
+	  padding: 20px;
 	  outline: 3px dashed #998100;
-	  outline-offset: -30px;
+	  outline-offset: -20px;
 	  text-align: center;
   }
   .heading {
-	  font-size: 35px;
+	  font-size: 25px;
 	  text-transform: uppercase;
   }
   
@@ -213,20 +213,23 @@ body {
 	  font-size: 20px;
   }
   .container-form {
-	  padding: 20px 0;
-	  margin: 0 auto;
+		margin :20px;
 	  color: #000;
   }
   form {
+	
 	  display: grid;
 	  grid-row-gap: 20px;
   }
   form p {
+		
 	  font-weight: 600;
   }
   .form-field {
+	width: 455px;
 	  display: flex;
 	  justify-content: space-between;
+	  
   }
   
   input,select {
