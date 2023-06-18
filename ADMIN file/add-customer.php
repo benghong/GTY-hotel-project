@@ -55,7 +55,7 @@
 							<ul class="submenu_class" style="display: none;">
 								<li><a href="all-customer.html"> All customers </a></li>
 								<li><a href="edit-customer.html"> Edit Customer </a></li>
-								<li><a href="add-customer.html"> Add Customer </a></li>
+								<li><a href="add-customer.php"> Add Customer </a></li>
 							</ul>
 						</li>
 						<li class="submenu"> <a href="#"><i class="fas fa-key"></i> <span> Rooms </span> <span class="menu-arrow"></span></a>
@@ -104,7 +104,7 @@
 					<div class="col-md-4">
 					<div class="form-group">
 					<label>Customer ID</label>
-					<input class="form-control" type="text" value="GTY-0001">
+					<input class="form-control" type="text" value="1">
 					</div>
 					</div>
 					

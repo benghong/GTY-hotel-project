@@ -1,6 +1,7 @@
-<?php include("dataconnection.php"); ?>
+<?php include("dataconnection.php");?>
 
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
 
 </head>
