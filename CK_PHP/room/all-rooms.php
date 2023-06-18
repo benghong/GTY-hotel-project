@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿<?php include("dataconnection.php"); ?>
+
+
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -54,7 +57,7 @@
 							<ul class="submenu_class" style="display: none;">
 								<li><a href="all-customer.html"> All customers </a></li>
 								<li><a href="edit-customer.html"> Edit Customer </a></li>
-								<li><a href="add-customer.html"> Add Customer </a></li>
+								<li><a href="add-customer.php"> Add Customer </a></li>
 							</ul>
 						</li>
 						<li class="submenu"> <a href="#"><i class="fas fa-key"></i> <span> Rooms </span> <span class="menu-arrow"></span></a>
@@ -93,7 +96,7 @@
 					<div class="row align-items-center">
 						<div class="col">
 							<div class="mt-5">
-								<h4 class="card-title float-left mt-2">All Rooms</h4> <a href="add-room.html" class="btn btn-primary float-right veiwbutton">Add Room</a> </div>
+								<h4 class="card-title float-left mt-2">All Rooms</h4> <a href="add-room.php" class="btn btn-primary float-right veiwbutton">Add Room</a> </div>
 						</div>
 					</div>
 				</div>
@@ -103,7 +106,7 @@
 							<div class="card-body booking_card">
 								<div class="table-responsive">
 									<table class="datatable table table-stripped table table-hover table-center mb-0">
-										<thead>
+										<thead >
 											<tr>
 												<th>Room No.</th>
 												<th>Booking ID</th>

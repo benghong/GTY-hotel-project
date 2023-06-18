@@ -133,97 +133,55 @@
 </div>
 <div class="row">
 <div class="col-lg-12">
-<form>
-<div class="row formtype">
-<div class="col-md-4">
-<div class="form-group">
-<label>Room No.</label>
-<input class="form-control" type="text" value="Room-001">
-</div>
-</div>
-<div class="col-md-4">
-	<div class="form-group">
-		<label>Room Type</label>
-		<select class="form-control" id="sel1" name="sellist1">
-			<option>Select</option>
-			<option>Exclusive Room</option>
-			<option>Family Room</option>
-			<option>Daily Room</option>
-			<option>Panoramic Room</option>
+<form method="post" action="" >
+							<div class="row formtype">
+								<div class="col-md-4">
+									<div class="form-group">
+										<label>Room Code</label>
+										<input class="form-control" type="text" value="001" name="room_code"> </div>
+								</div>
+								<div class="col-md-4">
+									<div class="form-group">
+										<label>Choose the Room Type</label>
+										<select class="form-control" id="sel1" name="room_type">
+											<option>Select</option>
+											<option>Exclusive Room</option>
+											<option>Family Room</option>
+											<option>Daily Room</option>
+											<option>Panoramic Room</option>
+						
+										</select>
+									</div>
+								</div>
+							
+								<div class="col-md-4">
+									<div class="form-group">
+										<label>Price</label>
+										<input type="text" class="form-control" id="sel3" name="room_price" placeholder="Enter the price" required>
+								
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="form-group">
+										<label>Quantity of Rooms:</label>
+										<input type="number" class="form-control" id="" name="room_stock">		
+									</div>
+								</div>
+								
+								<div class="col-md-4">
+									<div class="form-group">
+										<label>Details</label>
+										<textarea class="form-control" rows="3" id="comment" name="room_details"></textarea>
+									</div>
+								</div>
 
-		</select>
+						</form>
+					</div>
+				</div>
+				<button type="button" name="savebtn" class="btn btn-primary buttonedit ml-3" value="Save New Room Type" >Save</button>
+			</div>
+		</div>
 	</div>
-</div>
-
-<div class="col-md-4">
-	<div class="form-group">
-		<label>Food</label>
-		<select class="form-control" id="sel3" name="sellist1">
-			<option>Select</option>
-			<option>Free Breakfast</option>
-			<option>Free Lunch</option>
-			<option>Free Dinner</option>
-			<option>Free Breakfast & Dinner</option>
-			<option>Free Breakfast,Dinner & Lunch</option>
-			<option>Free Dinner & Lunch</option>
-		</select>
-	</div>
-</div>
-<div class="col-md-4">
-	<div class="form-group">
-		<label>Subroom</label>
-		<select class="form-control" id="sel4" name="sellist1">
-			<option>Select</option>
-			<option>1</option>
-			<option>2</option>
-
-		</select>
-	</div>
-</div>
-
-<div class="col-md-4">
-	<div class="form-group">
-		<label>Balcony</label>
-		<select class="form-control" id="sel4" name="sellist1">
-			<option>Select</option>
-			<option>1</option>
-			<option>2</option>
-			<option>3</option>
-		</select>
-	</div>
-</div>
-
-<div class="col-md-4">
-	<div class="form-group">
-		<label>Sofa</label>
-		<select class="form-control" id="sel4" name="sellist1">
-			<option>Select</option>
-			<option>1</option>
-			<option>2</option>
-			<option>3</option>
-			<option>4</option>
-		</select>
-	</div>
-</div>
-
-
-
-<div class="col-md-4">
-	<div class="form-group">
-		<label>Additional Information</label>
-		<textarea class="form-control" rows="5" id="comment" name="text"></textarea>
-	</div>
-</div>
-</div>
-</form>
-</div>
-</div>
-<button type="button" class="btn btn-primary buttonedit ml-2">Save</button>
-<button type="button" class="btn btn-primary buttonedit">Cancel</button>
-</div>
-</div>
-
-</div>
 
 
 <script src="assets/js/jquery-3.5.1.min.js"></script>
@@ -243,9 +201,26 @@
 		$(function () {
 			$('#datetimepicker3').datetimepicker({
 				format: 'LT'
-
 			});
 		});
 	</script>
 </body>
 </html>
+
+<?php
+if (isset($_POST["savebtn"])) 	
+{
+	$rtype = $_POST["room_type"];
+	$rprice = $_POST["room_price"];
+	$rstock = $_POST["room_stock"];
+    $rdetails = $_POST["room_details"];
+
+	mysqli_query($connect,"UPDATE room SET room_type='$rtype', room_price='$rprice', room_stock='$rstock',room_details='$rdetails' WHERE room_code='$rcode'");
+?>
+	<script>alert("Record is updated!")</script>
+<?php
+	header("refresh:0.5 url=all-rooms.php"); //redirect user back to room_list.php
+	
+}
+
+?>
