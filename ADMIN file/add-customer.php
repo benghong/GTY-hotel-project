@@ -98,13 +98,13 @@
 				</div>
 				<div class="row">
 					<div class="col-lg-12">
-					<form>
+					<form name="addnewfrm" method="post" action="">
 					
 					<div class="row formtype">
 					<div class="col-md-4">
 					<div class="form-group">
 					<label>Customer ID</label>
-					<input class="form-control" type="text" value="1">
+					<input class="form-control" type="text" name="customer_id">
 					</div>
 					</div>
 					
@@ -141,6 +141,14 @@
 					   </div>
 					   </div>
 				
+					</div>
+
+					<div class="col-md-4">
+					<div class="form-group">
+					<label>Password</label>
+					<input class="form-control" type="text" id="sel1" name="customer_password">
+					</div>
+					</div>
 					</div>
 					</form>
 					</div>

@@ -1,7 +1,7 @@
 <?php
 
 
-$connect = mysqli_connect("localhost","root","","gtyhotel");
+$connect = mysqli_connect("localhost","root","","gty_hotel");
 
 if($connect)
 {
