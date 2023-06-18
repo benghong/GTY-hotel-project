@@ -11,5 +11,5 @@ else
 {
   echo ("Error");
 }
-hash_algos
+dasda
 ?>
