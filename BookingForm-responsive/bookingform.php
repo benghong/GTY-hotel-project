@@ -19,11 +19,11 @@
       <nav>
         <a href="#" class="logo"> <img src="image/logo.jpeg" alt=""> </a>
 		<ul class="nav-menu">
-			<li> <a href="#home" class="nav-link">Home</a> </li>
-            <li> <a href="#about" class="nav-link">About</a> </li>
+			<li> <a href="Hotel Booking/index.php">Home</a> </li>
+            <li> <a href="Aboutus.html" >About</a> </li>
             <li> <a href="#rooms" class="nav-link">Rooms</a> </li>
 			<li> <a href="#restaurant" class="nav-link">Restaurant</a> </li>
-			<li> <a href="#gallery" class="nav-link">Gallery</a> </li>
+			<li> <a href="#gallary" class="nav-link">Gallery</a> </li>
 			<li> <a href="#contact" class="nav-link">Contact</a> </li>
 		  </ul>
   
@@ -64,6 +64,7 @@
         <div class="text">
           <h1 style="margin-top:-75px;">Welcome to GTY HOTEL</h1>
           <p>Welcome to our exquisite hotel, nestled in a breathtaking location alongside a stunningly beautiful beach. As you step into our serene paradise, you will be greeted by the gentle sound of waves, the soft caress of sea breeze, and the mesmerizing views of the sparkling ocean. Our hotel offers an exceptional experience, where luxury meets nature's splendor.</p>
+			
 
           <button>BOOKING NOW</button>
         </div>
@@ -196,7 +197,7 @@ if(isset($_POST["btn"]))
 	// $countname=mysqli_num_rows($checkname);
 	
 	
-	if($balance>0)
+	if($balance>=0)
 	{
 		?><script>console.log("hi");</script><?php
 		mysqli_query($connect, "INSERT INTO booking (cus_name, cus_email, cus_checkin, cus_checkintime, cus_checkout, cus_qty, booking_room_type) values ('$cname','$cemail','$ccheckin','$ccheckintime','$ccheckout','$cqty','$rbookingtype')");//insert data into purchase table

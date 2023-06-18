@@ -1,3 +1,4 @@
+<?php include("dataconnection.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -110,23 +111,24 @@
 					<div class="col-md-4">
 					<div class="form-group">
 					<label>Name</label>
-					<input class="form-control" type="text" id="sel1" name="sellist1">
+					<input class="form-control" type="text" id="sel1" name="customer_name">
 					</div>
 					</div>
 					</div>
 				
-					<div class="row formtype">
+				
 					
+					<div class="row formtype">
 					<div class="col-md-4">
 					<div class="form-group">
-					<label>Email ID</label>
-					<input type="text" class="form-control" id="usr">
+					<label>Email Address</label>
+					<input type="text" class="form-control" id="usr" name="customer_email">
 					</div>
 					</div>
 					<div class="col-md-4">
 					<div class="form-group">
 					<label>Phone Number</label>
-					<input type="text" class="form-control" id="usr1">
+					<input type="text" class="form-control" id="usr1" name="customer_phone_number">
 					</div>
 					</div>
 					
@@ -134,7 +136,7 @@
 						<div class="form-group">
 					   <label>Registration Date</label>
 					   <div class="cal-icon">
-					   <input type="text" class="form-control datetimepicker">
+					   <input type="text" class="form-control datetimepicker" name="customer_register_date">
 					   </div>
 					   </div>
 					   </div>
@@ -143,7 +145,7 @@
 					</form>
 					</div>
 				</div>
-				<button type="button" class="btn btn-primary buttonedit1">Create Customer</button>
+				<button type="button" class="btn btn-primary buttonedit1" name="addbtn">Create Customer</button>
 			</div>
 		</div>
 	</div>
@@ -162,6 +164,47 @@
 		});
 	});
 	</script>
-</body>
+	</body>
 
 </html>
+
+<?php
+
+if (isset($_POST["addbtn"]))	
+{
+	$cid = $_POST["customer_id"];
+	$cname= $_POST["customer_name"];
+	$cemail=$_POST["customer_email"];
+	$cphonenumber=$_POST["customer_phone_number"];
+    $cregisterdate=$_POST["customer_register_date"];
+
+	
+	
+	$result = mysqli_query($connect,"SELECT * from customer where customer_id = '$cid'" );
+	$count=mysqli_num_rows($result);
+	
+	if ($count != 0)
+	{
+	?>
+		<script>
+			alert("Customer ID already exist. Please change!");
+		</script>
+	<?php
+	}
+	else
+	{
+	   //else insert into database
+		$success=mysqli_query($connect,"INSERT INTO customer(customer_id,customer_name,customer_email,customer_phone_number,customer_register_date)
+		VALUES ('$cid','$cname','$cemail','$cphonenumber','$cregisterdate'");
+		
+		if($success){
+			?>
+			<script>
+				alert("Record saved!");
+			</script>
+			<?php
+		}
+	}
+}
+
+?>

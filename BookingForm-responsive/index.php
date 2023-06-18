@@ -19,7 +19,7 @@
       <nav>
         <a href="#" class="logo"> <img src="image/logo.jpeg" alt=""> </a>
 		<ul class="nav-menu">
-			<li> <a href="#home" class="nav-link">Home</a> </li>
+			<li> <a href="Hotel" class="nav-link">Home</a> </li>
             <li> <a href="#about" class="nav-link">About</a> </li>
             <li> <a href="#rooms" class="nav-link">Rooms</a> </li>
 			<li> <a href="#restaurant" class="nav-link">Restaurant</a> </li>
@@ -62,14 +62,14 @@
     <div class="head_container">
       <div class="box">
         <div class="text">
-          <h1>Welcome to GTY HOTEL</h1>
+          <h1 style="margin-top:-75px;">Welcome to GTY HOTEL</h1>
           <p>Welcome to our exquisite hotel, nestled in a breathtaking location alongside a stunningly beautiful beach. As you step into our serene paradise, you will be greeted by the gentle sound of waves, the soft caress of sea breeze, and the mesmerizing views of the sparkling ocean. Our hotel offers an exceptional experience, where luxury meets nature's splendor.
 
 			<br>Immerse yourself in the tranquil ambiance of our elegantly designed rooms, each thoughtfully crafted to provide comfort and style. Wake up to the panoramic vistas of the sun-kissed beach, inviting you to indulge in a day filled with relaxation and adventure.
 			
 			<br>Indulge your senses in our world-class amenities and services. Delight in exquisite dining options that cater to every palate, where culinary delights are prepared using the freshest local ingredients. Unwind by the infinity pool, savoring refreshing drinks while soaking in the glorious sunsets that paint the horizon with vibrant hues.
 			
-			<Br>For those seeking adventure, the beach offers an array of thrilling water activities, from snorkeling and diving to jet skiing and paddleboarding. Explore the wonders of the underwater world or simply bask in the warm golden sands, embracing the tranquility of the surroundings.
+			<br>For those seeking adventure, the beach offers an array of thrilling water activities, from snorkeling and diving to jet skiing and paddleboarding. Explore the wonders of the underwater world or simply bask in the warm golden sands, embracing the tranquility of the surroundings.
 						
 			<br>Escape to our enchanting oasis, where the beauty of the beach meets the luxury of our hotel. Experience the perfect blend of serenity, comfort, and indulgence, making your stay with us an unforgettable journey of relaxation and rejuvenation. Welcome to our seaside paradise, where dreams become reality.</p>
           <button>BOOKING NOW</button>
