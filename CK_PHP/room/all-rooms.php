@@ -108,34 +108,21 @@
 									<table class="datatable table table-stripped table table-hover table-center mb-0">
 										<thead >
 											<tr>
-												<th>Room No.</th>
-												<th>Booking ID</th>
-												<th>Name</th>
-												<th>Room Type</th>
-												<th>Check-In Date</th>
-												<th>Check-Out Date</th>
-												<th>Email</th>
-												<th>ContactNo.</th>
-												<th>Status</th>
+											<th>Room code:</th>
+											<th>Room Type:</th>
+											<th>Room Price</th>
+											<th>Room Details</th>
+											<th>Room Status</th>
+
 												<th class="text-right">Actions</th>
 											</tr>
 										</thead>
 										<tbody>
 											<tr>
-												<td>ROOM-001</td>
-												<td>GTYB-0001</td>
-												<td>
-													<h2 class="table-avatar">
-                                                    <a >Tan Beng Hong<span>#1</span></a>
-                                                    </h2>
-                                                </td>
+											<td>1</td>
 												<td>Daily Rooms</td>
-												
-											
-												<td>25-05-2023</td>
-												<td>30-05-2023</td>
-												<td><a>1211207051@student.edu.my</a></td>
-												<td>016-3335778</td>
+												<td>RM 90</td>
+												<td>null</td>
 												<td>
 													<div class="actions"> <a href="#" class="btn btn-sm bg-success-light mr-2">Active</a> </div>
 												</td>
@@ -146,19 +133,10 @@
 												</td>
 											</tr>
 											<tr>
-												<td>ROOM-002</td>
-												<td>GTYB-0002</td>
-												<td>
-													<h2 class="table-avatar">
-                                                    <a>Gan Yik Lei<span>#2</span></a>
-                                                    </h2>
-                                                </td>
+												<td>2</td>
 												<td>Exclusive Rooms</td>
-												
-												<td>01-06-2023</td>
-												<td>02-06-2023</td>
-												<td><a>1211202324@student.edu.my</a></td>
-												<td>016-2323555</td>
+												<td>RM 150</td>
+												<td>null</td>
 												<td>
 													<div class="actions"> <a href="#" class="btn btn-sm bg-success-light mr-2">Inactive</a> </div>
 												</td>
@@ -169,20 +147,25 @@
 												</td>
 											</tr>
 											<tr>
-												<td>ROOM-003</td>
-												<td>GTYB-0003</td>
-												<td>
-													<h2 class="table-avatar">
-                                                    <a>Ellen Thill <span>#3</span></a>
-                                                    </h2>
-                                                </td>
+												<td>3</td>
 												<td>Family Rooms</td>
-									
-											
-												<td>01-05-2023</td>
-												<td>10-05-2023</td>
-												<td><a>1211206859@student.edu.my</a></td>
-												<td>016-7783936</td>
+												<td>RM 130</td>
+												<td>null</td>
+												<td>
+													<div class="actions"> <a href="#" class="btn btn-sm bg-success-light mr-2">Active</a> </div>
+												</td>
+												<td class="text-right">
+													<div class="dropdown dropdown-action"> <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fas fa-ellipsis-v ellipse_color"></i></a>
+														<div class="dropdown-menu dropdown-menu-right"> <a class="dropdown-item" href="edit-room.html"><i class="fas fa-pencil-alt m-r-5"></i> Edit</a> <a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_asset"><i class="fas fa-trash-alt m-r-5"></i> Delete</a> </div>
+													</div>
+												</td>
+											</tr>
+
+											<tr>
+												<td>4</td>
+												<td>Panoramic Rooms</td>
+												<td>RM 120</td>
+												<td>null</td>
 												<td>
 													<div class="actions"> <a href="#" class="btn btn-sm bg-success-light mr-2">Active</a> </div>
 												</td>
