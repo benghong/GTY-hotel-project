@@ -35,7 +35,7 @@ function confirmation()
 						<td><?php echo $row["room_price"]?></td>
                         <td><?php echo $row["room_stock"]?></td>
 						
-						<td><a href="edit.php?edit&code=<?php echo $row["room_code"];?>">Edit</a></td>
+						<td><a href="edit.php?edit&code=<?php echo $row["customer_id"];?>">Edit</a></td>
 						<td><a href="room_list.php?del&code=<?php echo $row ["room_code"];?>" onclick="return confirmation();">Delete</a></td>
 						<td><a href="cus_booking.php?buy&code=<?php echo $row["room_code"];?>">Booking Now</a></td>
 					</tr>
