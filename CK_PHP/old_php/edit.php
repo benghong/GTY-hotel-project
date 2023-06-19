@@ -17,7 +17,7 @@
 		<form name="updatefrm" method="post" action="">
 
 			<p>Room Code: <input type="text" name="room_code"  value="<?php echo $row["room_code"];?>"  disabled>
-			<p>Room Type: <input type="text" name="room_type"  value="<?php echo $row["room_name"];?>">
+			<p>Room Type: <input type="text" name="room_type"  value="<?php echo $row["room_type"];?>">
 			<p>Room Price: <input type="text" name="room_price" value="<?php echo $row["room_price"];?>">
 			<p>Room Stock: <input type="number" name="room_stock"  value="<?php echo $row["room_stock"];?>">
             <p>Room Details: <input type="textbox" name="room_details" value="<?php echo $row["room_details"];?>">

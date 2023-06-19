@@ -1,4 +1,5 @@
 <?php include("dataconnection.php")?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -201,6 +202,7 @@ if (isset($_POST["savebtn"]))
 				alert("Record saved!");
 			</script>
 			<?php
+			header("refresh:0.5; url=all-rooms.php");
 		}
 	}
 }

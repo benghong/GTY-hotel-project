@@ -1,5 +1,19 @@
 ﻿<?php include("dataconnection.php"); ?>
-
+<?php
+    //remove room from room list
+    if (isset($_GET["del"])) 
+    {
+        $code=$_GET["code"];
+        //update room table and set room_isdelete to 1
+        $sql=mysqli_query($connect,"UPDATE room SET room_isdelete=1 WHERE room_code='$rcode'")
+        ?>
+        <script>
+            alert("Record Deleted.")
+        </script>
+        <?php
+        header("refresh:0.5; url=all-rooms.php");
+    }
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -239,18 +253,3 @@
 
 </html>
 
-<?php
-    //remove room from room list
-    if (isset($_GET["del"])) 
-    {
-        $code=$_GET["code"];
-        //update room table and set room_isdelete to 1
-        $sql=mysqli_query($connect,"UPDATE room SET room_isdelete=1 WHERE room_code='$rcode'")
-        ?>
-        <script>
-            alert("Record Deleted.")
-        </script>
-        <?php
-        header("refresh:0.5; url=room_list.php");
-    }
-?>

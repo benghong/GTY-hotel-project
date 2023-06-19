@@ -126,11 +126,9 @@
 <?php
 		if(isset($_GET["edit"]))
 		{
-		 $invnum=$_GET["inv_num"];
-			
-
-			$result = mysqli_query($connect, "SELECT * FROM invoice WHERE inv_num='$invnum'");
-			$row = mysqli_fetch_assoc($result);
+			$rtype=$_GET["room_type"];
+			$result = mysqli_query($connect,"SELECT * FROM room WHERE room_type='$rtype'");
+			$row=mysqli_fetch_assoc($result);
         }
 ?>
 
@@ -152,7 +150,8 @@
 								<div class="col-md-4">
 									<div class="form-group">
 										<label>Room Code</label>
-										<input class="form-control" type="text" value="<?php echo $row['room_code']; ?> name="room_code"> </div>
+										<input class="form-control" type="text" name="room_code" value="<?php echo $row['room_code']; ?>" disable> 
+									</div>
 								</div>
 								<div class="col-md-4">
 									<div class="form-group">
@@ -171,7 +170,7 @@
 								<div class="col-md-4">
 									<div class="form-group">
 										<label>Price</label>
-										<input type="text" class="form-control" id="sel3" name="room_price" placeholder="Enter the price" value="<?php echo $row['room_price'];  ?>" required>
+										<input type="text" class="form-control" id="sel3" name="room_price" placeholder="Enter the price" value="<?php echo $row['room_price'];  ?>" >
 								
 									</div>
 								</div>
