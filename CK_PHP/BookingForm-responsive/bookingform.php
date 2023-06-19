@@ -154,7 +154,7 @@
 					
 					<div class="form-field">
 						<p>Room Type </p>
-						<select id="booking_room_type" name="booking_room_type">
+						<select id="booking_room_type" name="room_type">
 							<option value="Exclusive Rooms">Exclusive_Rooms</option>
 							<option value="Family Rooms">Family_Rooms</option>
 							<option value="Daily Rooms">Daily_Rooms</option>
@@ -181,14 +181,14 @@ if(isset($_POST["btn"]))
     $ccheckintime = $_POST["cus_checkintime"];
     $ccheckout = $_POST["cus_checkout"];
     $cqty = $_POST["cus_qty"];
-	$broomtype= $_POST["booking_room_type"];
+	$broomtype= $_POST["room_type"];
 
 	$result=mysqli_query($connect,"SELECT * FROM room WHERE room_type = '$broomtype'");
 	$row=mysqli_fetch_assoc($result);
-	$rqty=1;
-	$balance = $row["room_stock"];
+	// $rqty=1;
+	// $balance = $row["room_stock"];
 	//checking 
-	?><script>console.log(<?php echo $balance; ?>);</script><?php
+	 ?><script>console.log(<?php echo $balance; ?>);</script><?php
 	
 	// $checkname=mysqli_query("SELECT * FROM booking WHERE cus_name='$cname'");
 	// $countname=mysqli_num_rows($checkname);
@@ -200,14 +200,14 @@ if(isset($_POST["btn"]))
 	if($balance>=0)
 	{
 		?><script>console.log("hi");</script><?php
-		mysqli_query($connect, "INSERT INTO booking (cus_name, cus_email, cus_checkin, cus_checkintime, cus_checkout, cus_qty, booking_room_type) values ('$cname','$cemail','$ccheckin','$ccheckintime','$ccheckout','$cqty','$rbookingtype')");//insert data into purchase table
+		mysqli_query($connect, "INSERT INTO booking (cus_name, cus_email, cus_checkin, cus_checkintime, cus_checkout, cus_qty, booking_room_type) values ('$cname','$cemail','$ccheckin','$ccheckintime','$ccheckout','$cqty','$broomtype')");//insert data into purchase table
 		mysqli_query($connect,"UPDATE room SET room_stock='$balance' WHERE room_type='$broomtype'");// update room table
 		?>
             <script>
                 alert("Booking is successfully placed");
             </script>
 		<?php
-		header("refresh:0.8 url=dataconnection.php"); //redirect user back to 
+		header("refresh:0.5 url=dataconnection.php"); //redirect user back to 
 	}
 	else
 	{

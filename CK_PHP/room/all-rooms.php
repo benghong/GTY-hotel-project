@@ -82,10 +82,6 @@
 								<li><a href="invoices.html">Invoice Report </a></li>
 							</ul>
 						</li>
-		
-						
-					
-						
 					</ul>
 				</div>
 			</div>
@@ -117,6 +113,7 @@
 												<th class="text-right">Actions</th>
 											</tr>
 										</thead>
+										
 										<tbody>
 											<tr>
 											<td>1</td>
@@ -128,7 +125,7 @@
 												</td>
 												<td class="text-right">
 													<div class="dropdown dropdown-action"> <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fas fa-ellipsis-v ellipse_color"></i></a>
-														<div class="dropdown-menu dropdown-menu-right"> <a class="dropdown-item" href="edit-room.html"><i class="fas fa-pencil-alt m-r-5"></i> Edit</a> <a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_asset"><i class="fas fa-trash-alt m-r-5"></i> Delete</a> </div>
+														<div class="dropdown-menu dropdown-menu-right"> <a class="dropdown-item" href="edit-room.php"><i class="fas fa-pencil-alt m-r-5"></i> Edit</a> <a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_asset"><i class="fas fa-trash-alt m-r-5"></i> Delete</a> </div>
 													</div>
 												</td>
 											</tr>
@@ -142,7 +139,7 @@
 												</td>
 												<td class="text-right">
 													<div class="dropdown dropdown-action"> <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fas fa-ellipsis-v ellipse_color"></i></a>
-														<div class="dropdown-menu dropdown-menu-right"> <a class="dropdown-item" href="edit-room.html"><i class="fas fa-pencil-alt m-r-5"></i> Edit</a> <a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_asset"><i class="fas fa-trash-alt m-r-5"></i> Delete</a> </div>
+														<div class="dropdown-menu dropdown-menu-right"> <a class="dropdown-item" href="edit-room.php"><i class="fas fa-pencil-alt m-r-5"></i> Edit</a> <a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_asset"><i class="fas fa-trash-alt m-r-5"></i> Delete</a> </div>
 													</div>
 												</td>
 											</tr>
@@ -156,7 +153,7 @@
 												</td>
 												<td class="text-right">
 													<div class="dropdown dropdown-action"> <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fas fa-ellipsis-v ellipse_color"></i></a>
-														<div class="dropdown-menu dropdown-menu-right"> <a class="dropdown-item" href="edit-room.html"><i class="fas fa-pencil-alt m-r-5"></i> Edit</a> <a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_asset"><i class="fas fa-trash-alt m-r-5"></i> Delete</a> </div>
+														<div class="dropdown-menu dropdown-menu-right"> <a class="dropdown-item" href="edit-room.php"><i class="fas fa-pencil-alt m-r-5"></i> Edit</a> <a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_asset"><i class="fas fa-trash-alt m-r-5"></i> Delete</a> </div>
 													</div>
 												</td>
 											</tr>
@@ -171,7 +168,7 @@
 												</td>
 												<td class="text-right">
 													<div class="dropdown dropdown-action"> <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fas fa-ellipsis-v ellipse_color"></i></a>
-														<div class="dropdown-menu dropdown-menu-right"> <a class="dropdown-item" href="edit-room.html"><i class="fas fa-pencil-alt m-r-5"></i> Edit</a> <a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_asset"><i class="fas fa-trash-alt m-r-5"></i> Delete</a> </div>
+														<div class="dropdown-menu dropdown-menu-right"> <a class="dropdown-item" href="edit-room.php"><i class="fas fa-pencil-alt m-r-5"></i> Edit</a> <a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_asset"><i class="fas fa-trash-alt m-r-5"></i> Delete</a> </div>
 													</div>
 												</td>
 											</tr>
@@ -200,6 +197,7 @@
 			</div>
 		</div>
 	</div>
+
 	<script data-cfasync="false" src="../../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
 	<script src="assets/js/jquery-3.5.1.min.js"></script>
 	<script src="assets/js/popper.min.js"></script>
@@ -212,3 +210,19 @@
 </body>
 
 </html>
+
+<?php
+    //remove room from room list
+    if (isset($_GET["del"])) 
+    {
+        $code=$_GET["code"];
+        //update room table and set room_isdelete to 1
+        $sql=mysqli_query($connect,"UPDATE room SET room_isdelete=1 WHERE room_code='$rcode'")
+        ?>
+        <script>
+            alert("Record Deleted.")
+        </script>
+        <?php
+        header("refresh:0.5; url=room_list.php");
+    }
+?>
