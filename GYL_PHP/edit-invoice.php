@@ -25,15 +25,16 @@
 <body>
 
 <div class="main-wrapper">
+	
 
 
 <?php
 		if(isset($_GET["edit"]))
 		{
-		 $invnum=$_GET["inv_num"];
+		 $invnum=$_GET["invnum"];
 			
 
-			$result = mysqli_query($connect, "SELECT * FROM invoice WHERE inv_num='$invnum'");
+			$result = mysqli_query($connect, "SELECT * FROM invoice WHERE invoice_number='$invnum'");
 			$row = mysqli_fetch_assoc($result);
         }
 		?>
@@ -160,8 +161,10 @@ if (isset($_POST["savebtn"]))
 		alert("Record is updated!");
 	</script>
 	<?php
-	header("refresh:0.5 url invoice_list.php");
+	header("refresh:0.5 url=invoice_list.php");
 }
+
+?>
 
 	
 	

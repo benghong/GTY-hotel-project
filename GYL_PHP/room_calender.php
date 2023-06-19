@@ -1,3 +1,5 @@
+<?php include("dataconnection.php"); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,6 +15,8 @@
 <link rel="stylesheet" href="assets/plugins/fontawesome/css/fontawesome.min.css">
 
 <link rel="stylesheet" href="assets/css/feathericon.min.css">
+
+<link rel="stylesheet" href="assets/plugins/datatables/datatables.min.css">
 <link rel="stylesheet" href="assets/plugins/morris/morris.css">
 <link rel="stylesheet" type="text/css" href="assets/css/bootstrap-datetimepicker.min.css">
 
@@ -47,9 +51,11 @@
 <ul class="nav user-menu">
 
 
+
+
 <li class="nav-item dropdown has-arrow">
 <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-<span class="user-img"><img class="rounded-circle" src="assets/img/profiles/avatar-01.jpg" width="31" alt="user"></span>
+<span class="user-img"><img class="rounded-circle" src="assets/img/profiles/avatar-01.jpg" width="31" alt="Soeng Souy"></span>
 </a>
 <div class="dropdown-menu">
 <div class="user-header">
@@ -57,7 +63,7 @@
 <img src="assets/img/profiles/avatar-01.jpg" alt="User Image" class="avatar-img rounded-circle">
 </div>
 <div class="user-text">
-	<h6>User</h6>
+<h6>User</h6>
 </div>
 </div>
 <a class="dropdown-item" href="profile.html">My Profile</a>
@@ -127,57 +133,139 @@
 <div class="page-header">
 <div class="row align-items-center">
 <div class="col">
-<h3 class="page-title mt-5">Edit Pricing</h3>
+<div class="mt-5">
+<h4 class="card-title float-left mt-2">Room Calender</h4>
 </div>
 </div>
 </div>
+</div>
+
+<?php
+if(isset($_GET["searchbtn"]))
+{
+    $...=$_GET["searchroomtype"];
+    $...=$_GET["searchroomfrom"];
+    $...=$_GET["searchroomto"];
+    $result=mysqli_query($connect,"SELECT * FROM invoice WHERE(invoice_status LIKE '%$invsearchstatus')");
+
+    if(mysqli_num_rows($result)==0)
+    {
+        echo "<br> Result could not be found!";
+    }
+
+    else
+    {
+        echo "<table border='1' width='50%'>";
+        while($row=mysqli_fetch_assoc($result))
+        {
+            ?>
+
+                <tbody>
+                <tr>
+                <td><?php echo $row["..."]; ?></td>
+                <td><?php echo $row["..."]; ?></td>
+                <td><?php echo $row["..."]; ?></td>
+                <td><?php echo $row["..."]; ?></td>
+                <td><a href="..." class="btn btn-primary float-right veiwbutton">Book</a> </td>
+                </tr>
+                </tbody>
+
+            <?php
+        }
+
+        echo "<table>";
+    }
+    
+
+
+}
+
+?>
+
 <div class="row">
 <div class="col-lg-12">
-<form>
+<form name="search_form" method="GET" action="">
 <div class="row formtype">
-<div class="col-md-4">
+<div class="col-md-3">
 <div class="form-group">
 <label>Room Type</label>
-<input class="form-control" type="text" value="Single">
-</div>
-</div>
-<div class="col-md-4">
-<div class="form-group">
-<label>Room Price</label>
-<input class="form-control" type="text" value="$15">
-</div>
-</div>
-
-<div class="col-md-4">
-<div class="form-group">
-<label>Room Facilities</label>
-<textarea cols="30" rows="6" class="form-control"></textarea>
+<select class="form-control" id="sel1" name="searchroomtype">
+<option>Daily Rooms</option>
+<option>Exclusive Rooms</option>
+<option>Family Rooms</option>
+<option>Panoromic Rooms</option>
+</select>
 </div>
 </div>
 
-<div class="col-md-4">
+<div class="col-md-3">
 <div class="form-group">
-<label class="display-block">Pricing Status</label>
-<div class="form-check form-check-inline">
-<input class="form-check-input" type="radio" name="status" id="pricing_active" value="option1" checked>
-<label class="form-check-label" for="pricing_active">
-Active
-</label>
+<label>From</label>
+<div class="cal-icon">
+<input type="date" name="searchroomfrom">
 </div>
-<div class="form-check form-check-inline">
-<input class="form-check-input" type="radio" name="status" id="pricing_inactive" value="option2">
-<label class="form-check-label" for="pricing_inactive">
-Inactive
-</label>
 </div>
+</div>
+<div class="col-md-3">
+<div class="form-group">
+<label>To</label>
+<div class="cal-icon">
+<input type="date" name="searchroomto">
 </div>
 </div>
 </div>
 
+<div class="col-md-3">
+<div class="form-group">
+<label>Search</label>
+<input type="submit" value="Search" class="btn btn-success btn-block mt-0 search_button" name="searchbtn">
+
+</div>
+</div>
+</div>
 </form>
 </div>
 </div>
-<button type="button" class="btn btn-primary buttonedit">Save Changes</button>
+<div class="row">
+<div class="col-sm-12">
+<div class="card">
+<div class="card-body">
+<div class="table-responsive">
+<table class="datatable table table-stripped">
+<thead>
+<tr>
+<th>Room Type</th>
+<th>Room Available From</th>
+<th>Room Available Till</th>
+<th>Room Capacity</th>
+<th class="text-right">Actions</th>
+</tr>
+</thead>
+
+<?php
+$result=mysqli_query($connect,"SELECT * FROM ... WHERE ..._isDelete=0");
+while($row=mysqli_fetch_assoc($result)){
+?>
+
+<tbody>
+<tr>
+<td><?php echo $row["..."]; ?></td>
+<td><?php echo $row["..."]; ?></td>
+<td><?php echo $row["..."]; ?></td>
+<td><?php echo $row["..."]; ?></td>
+<td><a href="..." class="btn btn-primary float-right veiwbutton">Book</a> </td>
+</tr>
+
+</tbody>
+<?php
+}
+?>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 
@@ -189,11 +277,13 @@ Inactive
 <script src="assets/js/popper.min.js"></script>
 <script src="assets/js/bootstrap.min.js"></script>
 <script src="assets/js/moment.min.js"></script>
+<script src="assets/js/select2.min.js"></script>
 
 <script src="assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
-
-
 <script src="assets/js/bootstrap-datetimepicker.min.js"></script>
+
+<script src="assets/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="assets/plugins/datatables/datatables.min.js"></script>
 
 <script src="assets/js/script.js"></script>
 <script>
