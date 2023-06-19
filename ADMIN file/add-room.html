@@ -26,7 +26,7 @@
 			<ul class="nav user-menu">
 				
 				<li class="nav-item dropdown has-arrow">
-					<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown"> <span class="user-img"><img class="rounded-circle" src="assets/img/profiles/avatar-01.jpg" width="31" alt="Soeng Souy"></span> </a>
+					<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown"> <span class="user-img"><img class="rounded-circle" src="assets/img/profiles/avatar-01.jpg" width="31" alt="user"></span> </a>
 					<div class="dropdown-menu">
 						<div class="user-header">
 							<div class="avatar avatar-sm"> <img src="assets/img/profiles/avatar-01.jpg" alt="User Image" class="avatar-img rounded-circle"> </div>
@@ -54,7 +54,7 @@
 							<ul class="submenu_class" style="display: none;">
 								<li><a href="all-customer.html"> All customers </a></li>
 								<li><a href="edit-customer.html"> Edit Customer </a></li>
-								<li><a href="add-customer.html"> Add Customer </a></li>
+								<li><a href="add-customer.php"> Add Customer </a></li>
 							</ul>
 						</li>
 						<li class="submenu"> <a href="#"><i class="fas fa-key"></i> <span> Rooms </span> <span class="menu-arrow"></span></a>
@@ -101,12 +101,12 @@
 							<div class="row formtype">
 								<div class="col-md-4">
 									<div class="form-group">
-										<label>Room No.</label>
-										<input class="form-control" type="text" value="Room-001"> </div>
+										<label>Room Code</label>
+										<input class="form-control" type="text" value="001"> </div>
 								</div>
 								<div class="col-md-4">
 									<div class="form-group">
-										<label>Room Type</label>
+										<label>New Room Type</label>
 										<select class="form-control" id="sel1" name="sellist1">
 											<option>Select</option>
 											<option>Exclusive Room</option>
@@ -120,69 +120,34 @@
 							
 								<div class="col-md-4">
 									<div class="form-group">
-										<label>Food</label>
-										<select class="form-control" id="sel3" name="sellist1">
-											<option>Select</option>
-											<option>Free Breakfast</option>
-											<option>Free Lunch</option>
-											<option>Free Dinner</option>
-											<option>Free Breakfast & Dinner</option>
-											<option>Free Breakfast,Dinner & Lunch</option>
-											<option>Free Dinner & Lunch</option>
-										</select>
+										<label>Price</label>
+										<input type="text" class="form-control" id="sel3" name="sellist1" placeholder="Enter the price" required>
+								
 									</div>
 								</div>
 								<div class="col-md-4">
 									<div class="form-group">
-										<label>Subroom</label>
-										<select class="form-control" id="sel4" name="sellist1">
-											<option>Select</option>
-											<option>1</option>
-											<option>2</option>
-		
-										</select>
+										<label>Quantity of New Rooms:</label>
+										<input type="number" class="form-control" id="" name="sellist1">		
 									</div>
 								</div>
 								
 								<div class="col-md-4">
 									<div class="form-group">
-										<label>Balcony</label>
-										<select class="form-control" id="sel4" name="sellist1">
-											<option>Select</option>
-											<option>1</option>
-											<option>2</option>
-											<option>3</option>
-										</select>
+										<label>Details</label>
+										<textarea class="form-control" rows="3" id="comment" name="sellist1"></textarea>
 									</div>
 								</div>
 
-								<div class="col-md-4">
-									<div class="form-group">
-										<label>Sofa</label>
-										<select class="form-control" id="sel4" name="sellist1">
-											<option>Select</option>
-											<option>1</option>
-											<option>2</option>
-											<option>3</option>
-											<option>4</option>
-										</select>
-									</div>
-								</div>
+								
 								
 								
 							
-								<div class="col-md-4">
-									<div class="form-group">
-										<label>Additional Information</label>
-										<textarea class="form-control" rows="5" id="comment" name="text"></textarea>
-									</div>
-								</div>
-							</div>
 						</form>
 					</div>
 				</div>
-				<button type="button" class="btn btn-primary buttonedit ml-2">Save</button>
-				<button type="button" class="btn btn-primary buttonedit">Cancel</button>
+				<button type="button" class="btn btn-primary buttonedit ml-3">Save</button>
+			
 			</div>
 		</div>
 	</div>
