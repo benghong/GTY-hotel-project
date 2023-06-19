@@ -51,8 +51,9 @@ if(isset($_GET["searchbtn"]))
     $invfrom=$_GET["searchinvfrom"];
     $invsearchto=$_GET["searchinvto"];
     $invsearchstatus=$_GET["searchstatus"];
-    $result=mysqli_query($connect,"SELECT * FROM invoice WHERE(invoice_status LIKE '%$invsearchstatus')");
-
+    $result=mysqli_query($connect,"SELECT * FROM invoice WHERE (invoice_date BETWEEN '$invfrom' AND '$invsearchto') OR (invoice_status = '$invsearchstatus')");
+    
+    
     if(mysqli_num_rows($result)==0)
     {
         echo "<br> Result could not be found!";
@@ -129,8 +130,8 @@ if(isset($_GET["searchbtn"]))
 <div class="form-group">
 <label>In/Out Customer</label>
 <select class="form-control" id="sel1" name="searchstatus">
-<option>In Customer</option>
-<option>Out Customer</option>
+<option value="in_customer">In Customer</option>
+<option value="out_customer">Out Customer</option>
 </select>
 </div>
 </div>
@@ -242,13 +243,18 @@ if (isset($_GET["del"]))
 {
 	$invnum=$_GET["invnum"];
 	//update product table and set product_isDelete to 1
-	$sql=mysqli_query($connect,"UPDATE invoice SET product_isDelete=1 WHERE invoice_number='$invnum'")
-	?>
-	<script>
-		alert("Record Deleted.")
-	</script>
-	<?php
-	header("refresh:0.5; url=invoice_list.php");
+	$sql=mysqli_query($connect,"UPDATE invoice SET invoice_isDelete=1 WHERE invoice_number='$invnum'");
+	
+    if($sql)
+    {
+        ?>
+            <script>
+                alert("Record Deleted.");
+            </script>
+        <?php
+    }
+    header( "refresh:0.5; url=pricing_list.php" );
+	
 }
 
 

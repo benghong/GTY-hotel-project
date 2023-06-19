@@ -25,6 +25,11 @@ li {
 a {
   text-decoration: none;
   transition: 0.5s;
+  color:white;
+}
+
+a:hover{
+  color:black;
 }
 
 .flex {
@@ -103,6 +108,7 @@ header ul li a {
   font-weight: 500;
   transition: 0.5s;
 }
+
 
 header ul li a:hover {
   color: #000;
