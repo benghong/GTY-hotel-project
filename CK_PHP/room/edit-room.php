@@ -1,3 +1,5 @@
+<?php include("dataconnection.php")?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -121,6 +123,18 @@
 	</div>
 </div>
 
+<?php
+		if(isset($_GET["edit"]))
+		{
+		 $invnum=$_GET["inv_num"];
+			
+
+			$result = mysqli_query($connect, "SELECT * FROM invoice WHERE inv_num='$invnum'");
+			$row = mysqli_fetch_assoc($result);
+        }
+?>
+
+
 
 <div class="page-wrapper">
 <div class="content container-fluid">
@@ -138,12 +152,12 @@
 								<div class="col-md-4">
 									<div class="form-group">
 										<label>Room Code</label>
-										<input class="form-control" type="text" value="001" name="room_code"> </div>
+										<input class="form-control" type="text" value="<?php echo $row['room_code']; ?> name="room_code"> </div>
 								</div>
 								<div class="col-md-4">
 									<div class="form-group">
 										<label>Choose the Room Type</label>
-										<select class="form-control" id="sel1" name="room_type">
+										<select class="form-control" id="sel1" name="room_type" value="<?php echo $row['room_type'];  ?>">
 											<option>Select</option>
 											<option>Exclusive Room</option>
 											<option>Family Room</option>
@@ -157,28 +171,28 @@
 								<div class="col-md-4">
 									<div class="form-group">
 										<label>Price</label>
-										<input type="text" class="form-control" id="sel3" name="room_price" placeholder="Enter the price" required>
+										<input type="text" class="form-control" id="sel3" name="room_price" placeholder="Enter the price" value="<?php echo $row['room_price'];  ?>" required>
 								
 									</div>
 								</div>
 								<div class="col-md-4">
 									<div class="form-group">
 										<label>Quantity of Rooms:</label>
-										<input type="number" class="form-control" id="" name="room_stock">		
+										<input type="number" class="form-control" id="" name="room_stock" value="<?php echo $row['room_stock'];  ?>">		
 									</div>
 								</div>
 								
 								<div class="col-md-4">
 									<div class="form-group">
 										<label>Details</label>
-										<textarea class="form-control" rows="3" id="comment" name="room_details"></textarea>
+										<textarea class="form-control" rows="3" id="comment" name="room_details" value="<?php echo $row['room_details'];  ?>"></textarea>
 									</div>
 								</div>
 
 						</form>
 					</div>
 				</div>
-				<button type="button" name="savebtn" class="btn btn-primary buttonedit ml-3" value="Save New Room Type" >Save</button>
+				<button type="button" name="savebtn" class="btn btn-primary buttonedit ml-3" value="Save Edited Room Type" >Save</button>
 			</div>
 		</div>
 	</div>
@@ -215,7 +229,7 @@ if (isset($_POST["savebtn"]))
 	$rstock = $_POST["room_stock"];
     $rdetails = $_POST["room_details"];
 
-	mysqli_query($connect,"UPDATE room SET room_type='$rtype', room_price='$rprice', room_stock='$rstock',room_details='$rdetails' WHERE room_code='$rcode'");
+	mysqli_query($connect,"UPDATE room SET room_type='$rtype', room_price='$rprice', room_stock='$rstock',room_details='$rdetails' WHERE room_type='$rtype'");
 ?>
 	<script>alert("Record is updated!")</script>
 <?php

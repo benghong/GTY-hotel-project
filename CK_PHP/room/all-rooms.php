@@ -17,6 +17,16 @@
 	<link rel="stylesheet" href="assets/plugins/morris/morris.css">
 	<link rel="stylesheet" href="assets/css/style.css"> </head>
 
+	<script type="text/javascript">
+		//delete confirmation
+		function confirmation()
+		{
+			var option;
+			option=confirm("Are you sure you want to delete this room type?");
+			return option;
+		}
+	</script>
+
 <body>
 	<div class="main-wrapper">
 		<div class="header">
@@ -92,30 +102,30 @@
 					<div class="row align-items-center">
 						<div class="col">
 							<div class="mt-5">
-								<h4 class="card-title float-left mt-2">All Rooms</h4> <a href="add-room.php" class="btn btn-primary float-right veiwbutton">Add Room</a> </div>
+								<h4 class="card-title float-left mt-2">List of Room Type</h4> <a href="add-room.php" class="btn btn-primary float-right veiwbutton">Add Room</a> </div>
 						</div>
 					</div>
 				</div>
-				<div class="row">
+
+
+					<div class="row">
 					<div class="col-sm-12">
 						<div class="card card-table">
 							<div class="card-body booking_card">
 								<div class="table-responsive">
-									<table class="datatable table table-stripped table table-hover table-center mb-0">
+									<table class="datatable table table-stripped table table-hover table-center mb-0" border="1">
 										<thead >
 											<tr>
 											<th>Room code:</th>
 											<th>Room Type:</th>
 											<th>Room Price</th>
 											<th>Room Details</th>
-											<th>Room Status</th>
-
-												<th class="text-right">Actions</th>
+											<th class="text-right" colspan="3">Actions</th>
 											</tr>
 										</thead>
 										
 										<tbody>
-											<tr>
+											<!-- <tr>
 											<td>1</td>
 												<td>Daily Rooms</td>
 												<td>RM 90</td>
@@ -174,7 +184,25 @@
 											</tr>
 											
 
-											
+											 -->
+
+											 <?php
+												$result=mysqli_query($connect,"SELECT * FROM room WHERE room_isdelete=0");
+												while($row=mysqli_fetch_assoc($result)){
+											?>
+													<tr>
+														<td><?php echo $row["room_code"]?></td>
+														<td><?php echo $row["room_type"]?></td>
+														<td><?php echo $row["room_price"]?></td>
+														<td><?php echo $row["room_stock"]?></td>
+														
+														<td><a href="edit-room.php?edit&code=<?php echo $row["room_code"];?>">Edit</a></td>
+														<td><a href="all-rooms.php?del&code=<?php echo $row ["room_code"];?>" onclick="return confirmation();">Delete</a></td>
+														<td><a href="bookingform.php?buy&code=<?php echo $row["room_code"];?>">Booking Now</a></td>
+													</tr>
+											<?php
+												}	
+											?>
 										</tbody>
 									</table>
 								</div>
@@ -183,20 +211,20 @@
 					</div>
 				</div>
 			</div>
-			<div id="delete_asset" class="modal fade delete-modal" role="dialog">
-				<div class="modal-dialog modal-dialog-centered">
-					<div class="modal-content">
-						<div class="modal-body text-center"> <img src="assets/img/sent.png" alt="" width="50" height="46">
-							<h3 class="delete_class">Are you sure want to delete this Asset?</h3>
-							<div class="m-t-20"> <a href="#" class="btn btn-white" data-dismiss="modal">Close</a>
-								<button type="submit" class="btn btn-danger">Delete</button>
+				<!-- <div id="delete_asset" class="modal fade delete-modal" role="dialog">
+					<div class="modal-dialog modal-dialog-centered">
+						<div class="modal-content">
+							<div class="modal-body text-center"> <img src="assets/img/sent.png" alt="" width="50" height="46">
+								<h3 class="delete_class">Are you sure want to delete this Asset?</h3>
+								<div class="m-t-20"> <a href="#" class="btn btn-white" data-dismiss="modal">Close</a>
+									<button type="submit" class="btn btn-danger">Delete</button>
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-			</div>
+				</div>-->
 		</div>
-	</div>
+	</div> 
 
 	<script data-cfasync="false" src="../../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
 	<script src="assets/js/jquery-3.5.1.min.js"></script>
