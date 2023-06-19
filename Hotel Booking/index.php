@@ -676,6 +676,7 @@
         </div>
       </div>
     </div>
+    </section>
   </footer>
 </body>
 

@@ -23,7 +23,7 @@
             <li> <a href="Aboutus.html" >About</a> </li>
             <li> <a href="#rooms" class="nav-link">Rooms</a> </li>
 			<li> <a href="#restaurant" class="nav-link">Restaurant</a> </li>
-			<li> <a href="#gallary" class="nav-link">Gallery</a> </li>
+			<li> <a href="#gallary" class="gallary top" id="gallary">Gallery</a> </li>
 			<li> <a href="#contact" class="nav-link">Contact</a> </li>
 		  </ul>
   
@@ -91,6 +91,7 @@
     }
   </script>
 <!--end of Photo-->
+
 	<div class="container">
 		<div class="container-time">
 				<h2 class="heading">WELCOME TO GTY_HOTEL </h2>
