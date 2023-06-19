@@ -39,12 +39,12 @@
     <div class="container">
       <nav class="navbar flex1">
         <div class="sticky_logo logo">
-          <img src="image/logo.jpeg" alt="">
+          <a href="#home"> <img src="image/logo.jpeg" alt=""> </a>
         </div>
 
         <ul class="nav-menu">
           <li> <a href="#home">Home</a> </li>
-          <li> <a href="#about">about</a> </li>
+          <li> <a href="#about">Intro</a> </li>
           <li> <a href="#room">services</a> </li>
           <li> <a href="#services">room</a> </li>
           <li> <a href="#shop">offers</a> </li>
@@ -52,15 +52,13 @@
           <li> <a href="#gallary">gallery</a> </li>
           <li> <a href="bookingform.php">booking</a> </li>
           <li> <a href="#contact">contact</a> </li>
-         
-          
+          <li> <a href="aboutus.html">About us</a> </li>
         </ul>
         <div class="hamburger">
         </div>
-          <span>Log in </span>
-          <span>Register</span>
+        <span><a href="login2.html"> Login/Register </a></span>
+          
      
-      
   </header>
   <script>
     const hamburger = document.querySelector(".hamburger");
