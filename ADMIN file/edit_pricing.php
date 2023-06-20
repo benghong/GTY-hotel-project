@@ -1,4 +1,38 @@
-<?php include("dataconnection.php"); ?>
+<?php include("dataconnection.php");
+
+if(isset($_GET["edit"]))
+		{
+		 $roomtype=$_GET["roomtype"];
+			
+
+			$result = mysqli_query($connect, "SELECT * FROM pricing WHERE room_type='$roomtype'");
+			$row = mysqli_fetch_assoc($result);
+        }
+
+if(isset($_POST["savebtn"])) 	
+{
+    $room_type=$_POST["room_type"];
+	$room_price=$_POST["room_prce"];
+	$room_facilities=$_POST["room_facilities"];
+
+	$sql=mysqli_query($connect,"UPDATE pricing SET room_type='$room_type',room_price='$room_price',room_facilities='$room_facilities' WHERE room_type='$roomtype'");
+	
+	if($sql)
+	{
+		?>
+	<script>
+		alert("Pricing Update");
+	</script>
+	
+		<?php
+	}
+
+	
+	header( "refresh:0.5; url=pricing_list.php" );
+	
+}
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -24,7 +58,6 @@
 <body>
 
 <div class="main-wrapper">
-
 <div class="header">
 			<div class="header-left">
 				<a href="index.html" class="logo"> <img src="assets/img/hotel_logo.png" width="50" height="70" alt="logo"> <span class="logoclass">HOTEL</span> </a>
@@ -74,80 +107,65 @@
 			</div>
 		</div>
 
+
+
+
+
 <div class="page-wrapper">
 <div class="content container-fluid">
 <div class="page-header">
 <div class="row align-items-center">
 <div class="col">
-<h3 class="page-title mt-5">Edit Customer</h3>
+<h3 class="page-title mt-5">Edit Pricing</h3>
 </div>
 </div>
 </div>
-
 <div class="row">
-	<div class="col-lg-12">
-	<form name="updatefrm" method="post" action="">
-	
-	<div class="row formtype">
-	<div class="col-md-4">
-	<div class="form-group">
-	<label>Customer ID</label>
-	<input class="form-control" type="text" value="1" name="customer_id">
-	</div>
-	</div>
-	
-	<div class="col-md-4">
-	<div class="form-group">
-	<label>Name</label>
-	<input class="form-control" type="text" id="sel1" name="customer_name" >
-	</div>
-	</div>
-	</div>
+<div class="col-lg-12">
 
-	<div class="row formtype">
-	
-	<div class="col-md-4">
-	<div class="form-group">
-	<label>Email ID</label>
-	<input type="text" class="form-control" id="usr" name="customer_email">
-	</div>
-	</div>
-	<div class="col-md-4">
-	<div class="form-group">
-	<label>Phone Number</label>
-	<input type="text" class="form-control" id="usr1"  name="customer_phone_number" >
-	</div>
-	</div>
-	</div>
+<form name="updatefrm" method="post" action="">
 
-	<div class="col-md-4">
-	<div class="form-group">
-	<label>Customer Password</label>
-	<input class="form-control" type="text"  name="customer_password">
-	</div>
-	</div>
-	
-	</div>
-	</div>
+<div class="row formtype">
+<div class="col-md-4">
+<div class="form-group">
+<label>Room Type</label>
+<input class="form-control" type="text" name="room_type" value="<?php echo $row['room_type']; ?>" placeholder="Enter the new room type" required>
+</div>
+</div>
+<div class="col-md-4">
+<div class="form-group">
+<label>Room Price</label>
+<input class="form-control" type="number" name="room_price" value="<?php echo $row['room_price']; ?>" placeholder="Enter the new room price" required>
+</div>
+</div>
+
+<div class="col-md-4">
+<div class="form-group">
+<label>Room Facilities</label>
+<textarea cols="30" rows="6" class="form-control" name="room_facilities" placeholder="Enter room facilities" required><?php echo $row['room_facilities']; ?></textarea>
+
+</div>
+</div>
 
 <input type="submit" class="btn btn-primary buttonedit" name="savebtn" value="Save Changes">
+
 </form>
+</div>
+</div>
 
 </div>
 </div>
 
-
+</div>
 
 
 <script src="assets/js/jquery-3.5.1.min.js"></script>
-
 <script src="assets/js/popper.min.js"></script>
 <script src="assets/js/bootstrap.min.js"></script>
 <script src="assets/js/moment.min.js"></script>
-<script src="assets/js/select2.min.js"></script>
 
 <script src="assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
-<script src="assets/plugins/raphael/raphael.min.js"></script>
+
 
 <script src="assets/js/bootstrap-datetimepicker.min.js"></script>
 
@@ -163,40 +181,3 @@
 </body>
 </html>
 
-<?php
-
-if(isset($_GET["edit"]))
-		{
-		 	$cid=$_GET["customer_id"];
-			$result = mysqli_query($connect, "SELECT * FROM customer WHERE customer_id='$cid'");
-			$row = mysqli_fetch_assoc($result);
-        }
-
-if(isset($_POST["savebtn"])) 	
-{
-	$cid= $_POST["customer_id"];
-	$cname= $_POST["customer_name"];
-	$cemail=$_POST["customer_email"];
-	$cphonenumber=$_POST["customer_phone_number"];
-	$cpassword=$_POST["customer_password"];
-	?><script>console.log("<?php echo $cname; ?>") </script>
-	<?php
-
-	$success=mysqli_query($connect,"UPDATE customer SET customer_id='$cid', customer_name='$cname', customer_email='$cemail', customer_phone_number='$cphonenumber',customer_password=$cpassword WHERE customer_id='$cid'");
-	
-	if($success)
-	{
-		?>
-	<script>
-		alert("Customer Table Updated");
-	</script>
-	
-		<?php
-	}
-
-	
-	header( "refresh:0.5; url=edit-customer.php");
-	
-}
-
-?>

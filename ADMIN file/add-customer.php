@@ -17,7 +17,7 @@
 
 <body>
 	<div class="main-wrapper">
-		<div class="header">
+	<div class="header">
 			<div class="header-left">
 				<a href="index.html" class="logo"> <img src="assets/img/hotel_logo.png" width="50" height="70" alt="logo"> <span class="logoclass">HOTEL</span> </a>
 				<a href="index.html" class="logo logo-small"> <img src="assets/img/hotel_logo.png" alt="Logo" width="30" height="30"> </a>
@@ -26,17 +26,7 @@
 			<a class="mobile_btn" id="mobile_btn"> <i class="fas fa-bars"></i> </a>
 			<ul class="nav user-menu">
 				
-				<li class="nav-item dropdown has-arrow">
-					<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown"> <span class="user-img"><img class="rounded-circle" src="assets/img/profiles/avatar-01.jpg" width="31" alt="user
-					"></span> </a>
-					<div class="dropdown-menu">
-						<div class="user-header">
-							<div class="avatar avatar-sm"> <img src="assets/img/profiles/avatar-01.jpg" alt="User Image" class="avatar-img rounded-circle"> </div>
-							<div class="user-text">
-								<h6>User</h6>
-							</div>
-						</div> <a class="dropdown-item" href="profile.html">My Profile</a>  <a class="dropdown-item" href="login.html">Logout</a> </div>
-				</li>
+				
 			</ul>
 		</div>
 		<div class="sidebar" id="sidebar">
@@ -45,44 +35,28 @@
 					<ul>
 						<li> <a href="index.html"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a> </li>
 						<li class="list-divider"></li>
-						<li class="submenu"> <a href="#"><i class="fas fa-suitcase"></i> <span> Booking </span> <span class="menu-arrow"></span></a>
-							<ul class="submenu_class" style="display: none;">
-								<li><a href="all-booking.html"> All Booking </a></li>
-								<li><a href="edit-booking.html"> Edit Booking </a></li>
-								<li><a href="add-booking.html"> Add Booking </a></li>
-							</ul>
-						</li>
+						<li> <a href="all-booking.php"><i class="fas fa-suitcase"></i> <span> Booking </span></a></li>
 						<li class="submenu"> <a href="#"><i class="fas fa-user"></i> <span> Customers </span> <span class="menu-arrow"></span></a>
 							<ul class="submenu_class" style="display: none;">
-								<li><a href="all-customer.html"> All customers </a></li>
+								<li><a href="all-customer.php"> All customers </a></li>
 								<li><a href="edit-customer.php"> Edit Customer </a></li>
 								<li><a href="add-customer.php"> Add Customer </a></li>
 							</ul>
 						</li>
 						<li class="submenu"> <a href="#"><i class="fas fa-key"></i> <span> Rooms </span> <span class="menu-arrow"></span></a>
 							<ul class="submenu_class" style="display: none;">
-								<li><a href="all-rooms.html">All Rooms </a></li>
-								<li><a href="edit-room.html"> Edit Rooms </a></li>
-								<li><a href="add-room.html"> Add Rooms </a></li>
+								<li><a href="roomtypelist.php">Room Type List </a></li> <!--add room type list-->
+								<li><a href="edit-room.php"> Edit Rooms </a></li>
+								<li><a href="add-room.php"> Add Rooms </a></li>
 							</ul>
 						</li>
 		
-						<li> <a href="pricing.html"><i class="far fa-money-bill-alt"></i> <span>Pricing</span></a> </li>
+						<li> <a href="pricing_list.php"><i class="far fa-money-bill-alt"></i> <span>Pricing</span></a> </li>
 		
-						<li class="submenu"> <a href="#"><i class="fas fa-key"></i> <span> Calender </span> <span class="menu-arrow"></span></a>
-							<ul class="submenu_class" style="display: none;">
-						<li> <a href="calendar.html"><i class="fas fa-calendar-alt"></i> <span>Event Calendar</span></a> </li>
-						<li><a href="room-calender.html">Room Calender </a></li>
-							</ul>
 						
-						
-						<li class="submenu"> <a href="#"><i class="fe fe-table"></i> <span> Reports </span> <span class="menu-arrow"></span></a>
-							<ul class="submenu_class" style="display: none;">
-								<li><a href="invoices.html">Invoice Report </a></li>
-							</ul>
-						</li>
+						<li> <a href="invoices.php"><i class="fe fe-table"></i> <span>Invoice Reports </span> </span></a></li>
 
-						<li> <a href="index.html"><i class="fas fa-sign-in-alt"></i> <span>GTY Hotel Website</span></a> </li>
+						<li> <a href="index.php"><i class="fas fa-sign-in-alt"></i> <span>GTY Hotel Website</span></a> </li>
 		
 						
 					
@@ -142,16 +116,6 @@
 					<input type="text" class="form-control" id="usr1" name="customer_phone_number">
 					</div>
 					</div>
-					
-					<div class="col-md-4">
-						<div class="form-group">
-					   <label>Registration Date</label>
-					   <div class="cal-icon">
-					   <input type="text" class="form-control datetimepicker" name="customer_register_date">
-					   </div>
-					   </div>
-					   </div>
-				
 					</div>
 
 					<div class="col-md-4">
@@ -192,13 +156,12 @@
 
 if (isset($_POST["addbtn"]))	
 {
-	$cid = $_POST["customer_id"];
+	$cid= $_POST["customer_id"];
 	$cname= $_POST["customer_name"];
 	$cemail=$_POST["customer_email"];
 	$cphonenumber=$_POST["customer_phone_number"];
-    $cregisterdate=$_POST["customer_register_date"];
+	$cpassword=$_POST["customer_password"];
 
-	
 	
 	$result = mysqli_query($connect,"SELECT * from customer where customer_id = '$cid'" );
 	$count=mysqli_num_rows($result);
@@ -218,8 +181,8 @@ if (isset($_POST["addbtn"]))
 		$latest_cus_num = $row['max_cus_num'];
 		$new_cus_num = $latest_cus_num + 1;
 	   //else insert into database
-		$success=mysqli_query($connect,"INSERT INTO customer(customer_id,customer_name,customer_email,customer_phone_number,customer_register_date)
-		VALUES ('$new_cus_num','$cname','$cemail','$cphonenumber','$cregisterdate')");
+		$success=mysqli_query($connect,"INSERT INTO customer(customer_id,customer_name,customer_email,customer_phone_number,customer_password)
+		VALUES ('$new_cus_num','$cname','$cemail','$cphonenumber','$cpassword')");
 
 
 		
