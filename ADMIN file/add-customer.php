@@ -154,7 +154,7 @@
 					</form>
 					</div>
 				</div>
-				<button type="button" class="btn btn-primary buttonedit1" name="addbtn">Create Customer</button>
+				<input type="submit" class="btn btn-primary buttonedit1" name="addbtn" value="Create Customer">
 			</div>
 		</div>
 	</div>
@@ -204,7 +204,8 @@ if (isset($_POST["addbtn"]))
 	{
 	   //else insert into database
 		$success=mysqli_query($connect,"INSERT INTO customer(customer_id,customer_name,customer_email,customer_phone_number,customer_register_date)
-		VALUES ('$cid','$cname','$cemail','$cphonenumber','$cregisterdate'");
+		VALUES ('$cid','$cname','$cemail','$cphonenumber','$cregisterdate')");
+		
 		
 		if($success){
 			?>
