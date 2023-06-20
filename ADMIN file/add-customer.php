@@ -1,4 +1,55 @@
 <?php include("dataconnection.php"); ?>
+
+
+<?php
+
+if (isset($_POST["addbtn"]))	
+{
+	$cid= $_POST["customer_id"];
+	$cname= $_POST["customer_name"];
+	$cemail=$_POST["customer_email"];
+	$cphonenumber=$_POST["customer_phone_number"];
+	$cpassword=$_POST["customer_password"];
+
+	
+	$result = mysqli_query($connect,"SELECT * from customer where customer_id = '$cid'" );
+	$count=mysqli_num_rows($result);
+	
+	if ($count != 0)
+	{
+	?>
+		<script>
+			alert("Customer ID already exist. Please change!");
+		</script>
+	<?php
+	}
+	else
+	{
+		$result = mysqli_query($connect, "SELECT MAX(customer_id) AS max_cus_num FROM customer");
+		$row = mysqli_fetch_assoc($result);
+		$latest_cus_num = $row['max_cus_num'];
+		$new_cus_num = $latest_cus_num + 1;
+	   //else insert into database
+		$success=mysqli_query($connect,"INSERT INTO customer(customer_id,customer_name,customer_email,customer_phone_number,customer_password)
+		VALUES ('$new_cus_num','$cname','$cemail','$cphonenumber','$cpassword')");
+
+
+		
+		
+		if($success){
+			?>
+			<script>
+				alert("Record saved!");
+			</script>
+			<?php
+		}
+	}
+	header( "refresh:0.5; url=all-customer.php" );
+	exit;
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,8 +70,8 @@
 	<div class="main-wrapper">
 	<div class="header">
 			<div class="header-left">
-				<a href="index.html" class="logo"> <img src="assets/img/hotel_logo.png" width="50" height="70" alt="logo"> <span class="logoclass">HOTEL</span> </a>
-				<a href="index.html" class="logo logo-small"> <img src="assets/img/hotel_logo.png" alt="Logo" width="30" height="30"> </a>
+				<a href="index.php" class="logo"> <img src="assets/img/hotel_logo.png" width="50" height="70" alt="logo"> <span class="logoclass">HOTEL</span> </a>
+				<a href="index.php" class="logo logo-small"> <img src="assets/img/hotel_logo.png" alt="Logo" width="30" height="30"> </a>
 			</div>
 			<a href="javascript:void(0);" id="toggle_btn"> <i class="fe fe-text-align-left"></i> </a>
 			<a class="mobile_btn" id="mobile_btn"> <i class="fas fa-bars"></i> </a>
@@ -33,7 +84,7 @@
 			<div class="sidebar-inner slimscroll">
 				<div id="sidebar-menu" class="sidebar-menu">
 					<ul>
-						<li> <a href="index.html"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a> </li>
+						<li> <a href="index.php"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a> </li>
 						<li class="list-divider"></li>
 						<li> <a href="all-booking.php"><i class="fas fa-suitcase"></i> <span> Booking </span></a></li>
 						<li class="submenu"> <a href="#"><i class="fas fa-user"></i> <span> Customers </span> <span class="menu-arrow"></span></a>
@@ -96,7 +147,7 @@
 					<div class="col-md-4">
 					<div class="form-group">
 					<label>Name</label>
-					<input class="form-control" type="text" id="sel1" name="customer_name">
+					<input class="form-control" type="text" id="sel1" name="customer_name" required>
 					</div>
 					</div>
 					</div>
@@ -107,13 +158,13 @@
 					<div class="col-md-4">
 					<div class="form-group">
 					<label>Email Address</label>
-					<input type="text" class="form-control" id="usr" name="customer_email">
+					<input type="text" class="form-control" id="usr" name="customer_email" required>
 					</div>
 					</div>
 					<div class="col-md-4">
 					<div class="form-group">
 					<label>Phone Number</label>
-					<input type="text" class="form-control" id="usr1" name="customer_phone_number">
+					<input type="text" class="form-control" id="usr1" name="customer_phone_number" required>
 					</div>
 					</div>
 					</div>
@@ -121,7 +172,7 @@
 					<div class="col-md-4">
 					<div class="form-group">
 					<label>Password</label>
-					<input class="form-control" type="text" id="sel1" name="customer_password">
+					<input class="form-control" type="text" id="sel1" name="customer_password" required>
 					</div>
 					</div>
 					</div>
@@ -151,50 +202,3 @@
 	</body>
 
 </html>
-
-<?php
-
-if (isset($_POST["addbtn"]))	
-{
-	$cid= $_POST["customer_id"];
-	$cname= $_POST["customer_name"];
-	$cemail=$_POST["customer_email"];
-	$cphonenumber=$_POST["customer_phone_number"];
-	$cpassword=$_POST["customer_password"];
-
-	
-	$result = mysqli_query($connect,"SELECT * from customer where customer_id = '$cid'" );
-	$count=mysqli_num_rows($result);
-	
-	if ($count != 0)
-	{
-	?>
-		<script>
-			alert("Customer ID already exist. Please change!");
-		</script>
-	<?php
-	}
-	else
-	{
-		$result = mysqli_query($connect, "SELECT MAX(customer_id) AS max_cus_num FROM customer");
-		$row = mysqli_fetch_assoc($result);
-		$latest_cus_num = $row['max_cus_num'];
-		$new_cus_num = $latest_cus_num + 1;
-	   //else insert into database
-		$success=mysqli_query($connect,"INSERT INTO customer(customer_id,customer_name,customer_email,customer_phone_number,customer_password)
-		VALUES ('$new_cus_num','$cname','$cemail','$cphonenumber','$cpassword')");
-
-
-		
-		
-		if($success){
-			?>
-			<script>
-				alert("Record saved!");
-			</script>
-			<?php
-		}
-	}
-}
-
-?>

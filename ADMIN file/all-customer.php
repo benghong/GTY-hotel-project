@@ -1,4 +1,22 @@
 ﻿<?php include("dataconnection.php"); ?>
+
+<?php
+    //remove customer from customer list
+    if (isset($_GET["del"])) 
+    {
+        $code=$_GET["code"];
+		$cid = $_POST["customer_id"];
+        //update customer table and set customer_isdelete to 1
+        $sql=mysqli_query($connect,"UPDATE customer SET customer_isDelete=1 WHERE customer_id ='$code'")
+        ?>
+        <script>
+            alert("Record Deleted.")
+        </script>
+        <?php
+        header("refresh:0.5; url=all-customer.php");
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,8 +47,8 @@ function confirmation()
 	<div class="main-wrapper">
 	<div class="header">
 			<div class="header-left">
-				<a href="index.html" class="logo"> <img src="assets/img/hotel_logo.png" width="50" height="70" alt="logo"> <span class="logoclass">HOTEL</span> </a>
-				<a href="index.html" class="logo logo-small"> <img src="assets/img/hotel_logo.png" alt="Logo" width="30" height="30"> </a>
+				<a href="index.php" class="logo"> <img src="assets/img/hotel_logo.png" width="50" height="70" alt="logo"> <span class="logoclass">HOTEL</span> </a>
+				<a href="index.php" class="logo logo-small"> <img src="assets/img/hotel_logo.png" alt="Logo" width="30" height="30"> </a>
 			</div>
 			<a href="javascript:void(0);" id="toggle_btn"> <i class="fe fe-text-align-left"></i> </a>
 			<a class="mobile_btn" id="mobile_btn"> <i class="fas fa-bars"></i> </a>
@@ -43,7 +61,7 @@ function confirmation()
 			<div class="sidebar-inner slimscroll">
 				<div id="sidebar-menu" class="sidebar-menu">
 					<ul>
-						<li> <a href="index.html"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a> </li>
+						<li> <a href="index.php"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a> </li>
 						<li class="list-divider"></li>
 						<li> <a href="all-booking.php"><i class="fas fa-suitcase"></i> <span> Booking </span></a></li>
 						<li class="submenu"> <a href="#"><i class="fas fa-user"></i> <span> Customers </span> <span class="menu-arrow"></span></a>
@@ -167,19 +185,3 @@ function confirmation()
 
 </html>
 
-<?php
-    //remove customer from customer list
-    if (isset($_GET["del"])) 
-    {
-        $code=$_GET["code"];
-		$cid = $_POST["customer_id"];
-        //update customer table and set customer_isdelete to 1
-        $sql=mysqli_query($connect,"UPDATE customer SET customer_isDelete=1 WHERE customer_id ='$code'")
-        ?>
-        <script>
-            alert("Record Deleted.")
-        </script>
-        <?php
-        header("refresh:0.5; url=all-customer.php");
-    }
-?>
