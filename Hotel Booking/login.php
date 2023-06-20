@@ -25,7 +25,7 @@
 						<div class="login-right-wrap">
 							<h1>Login</h1>
 							<p class="account-subtitle">Access to our dashboard</p>
-							<form action="index.php">
+							<form action="userindex.php">
 								<div class="form-group">
 									<input class="form-control" type="text" placeholder="Admin Username"> </div>
 								<div class="form-group">
@@ -71,14 +71,13 @@ if(isset($_POST["adminlogin"]))
     if($resultname<=0 || $resultpassword<=0)
     {
         mysqli_query($connect,"INSERT INTO admi (admin_name,admin_password) VALUES ('$name','$password')");
-        
-    }
-      ?>
+        ?>
         <script>
           alert("Login Sucessfully");
         </script>
       <?php
-
+    }
+      
     // else
     // {
     //   ?>
@@ -91,6 +90,6 @@ if(isset($_POST["adminlogin"]))
     $check=mysqli_query($connect,"SELECT * FROM admi WHERE admin_name='$name'");
     $row=mysqli_fetch_assoc($check);
     $code=$row['admin_id'];
-    header("refresh:0.5 url=uindex.php?reserve&code=$code");
+    header("refresh:0.5 url=userindex.php?reserve&code=$code");
 }
 ?>
