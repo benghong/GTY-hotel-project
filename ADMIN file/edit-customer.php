@@ -88,7 +88,7 @@
 				</li>
 				<li class="submenu"> <a href="#"><i class="fas fa-user"></i> <span> Customers </span> <span class="menu-arrow"></span></a>
 					<ul class="submenu_class" style="display: none;">
-						<li><a href="all-customer.html"> All customers </a></li>
+						<li><a href="all-customer.php"> All customers </a></li>
 						<li><a href="edit-customer.php"> Edit Customer </a></li>
 						<li><a href="add-customer.php"> Add Customer </a></li>
 					</ul>
@@ -141,14 +141,14 @@
 	<div class="col-md-4">
 	<div class="form-group">
 	<label>Customer ID</label>
-	<input class="form-control" type="text" value="1" name="customer_id" >
+	<input class="form-control" type="text" value="1" name="customer_id">
 	</div>
 	</div>
 	
 	<div class="col-md-4">
 	<div class="form-group">
 	<label>Name</label>
-	<input class="form-control" type="text" id="sel1" name="customer_name">
+	<input class="form-control" type="text" id="sel1" name="customer_name" >
 	</div>
 	</div>
 	</div>
@@ -164,7 +164,7 @@
 	<div class="col-md-4">
 	<div class="form-group">
 	<label>Phone Number</label>
-	<input type="text" class="form-control" id="usr1"  name="customer_phone_number">
+	<input type="text" class="form-control" id="usr1"  name="customer_phone_number" >
 	</div>
 	</div>
 	</div>

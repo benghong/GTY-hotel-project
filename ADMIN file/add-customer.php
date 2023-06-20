@@ -54,7 +54,7 @@
 						</li>
 						<li class="submenu"> <a href="#"><i class="fas fa-user"></i> <span> Customers </span> <span class="menu-arrow"></span></a>
 							<ul class="submenu_class" style="display: none;">
-								<li><a href="all-customer.html"> All customers </a></li>
+								<li><a href="all-customer.php"> All customers </a></li>
 								<li><a href="edit-customer.php"> Edit Customer </a></li>
 								<li><a href="add-customer.php"> Add Customer </a></li>
 							</ul>
@@ -142,16 +142,6 @@
 					<input type="text" class="form-control" id="usr1" name="customer_phone_number">
 					</div>
 					</div>
-					
-					<div class="col-md-4">
-						<div class="form-group">
-					   <label>Registration Date</label>
-					   <div class="cal-icon">
-					   <input type="text" class="form-control datetimepicker" name="customer_register_date">
-					   </div>
-					   </div>
-					   </div>
-				
 					</div>
 
 					<div class="col-md-4">
@@ -192,13 +182,12 @@
 
 if (isset($_POST["addbtn"]))	
 {
-	$cid = $_POST["customer_id"];
+	$cid= $_POST["customer_id"];
 	$cname= $_POST["customer_name"];
 	$cemail=$_POST["customer_email"];
 	$cphonenumber=$_POST["customer_phone_number"];
-    $cregisterdate=$_POST["customer_register_date"];
+	$cpassword=$_POST["customer_password"];
 
-	
 	
 	$result = mysqli_query($connect,"SELECT * from customer where customer_id = '$cid'" );
 	$count=mysqli_num_rows($result);
@@ -218,8 +207,8 @@ if (isset($_POST["addbtn"]))
 		$latest_cus_num = $row['max_cus_num'];
 		$new_cus_num = $latest_cus_num + 1;
 	   //else insert into database
-		$success=mysqli_query($connect,"INSERT INTO customer(customer_id,customer_name,customer_email,customer_phone_number,customer_register_date)
-		VALUES ('$new_cus_num','$cname','$cemail','$cphonenumber','$cregisterdate')");
+		$success=mysqli_query($connect,"INSERT INTO customer(customer_id,customer_name,customer_email,customer_phone_number,customer_password)
+		VALUES ('$new_cus_num','$cname','$cemail','$cphonenumber','$cpassword')");
 
 
 		
