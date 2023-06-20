@@ -55,7 +55,7 @@
 						<li class="submenu"> <a href="#"><i class="fas fa-user"></i> <span> Customers </span> <span class="menu-arrow"></span></a>
 							<ul class="submenu_class" style="display: none;">
 								<li><a href="all-customer.html"> All customers </a></li>
-								<li><a href="edit-customer.html"> Edit Customer </a></li>
+								<li><a href="edit-customer.php"> Edit Customer </a></li>
 								<li><a href="add-customer.php"> Add Customer </a></li>
 							</ul>
 						</li>
@@ -81,6 +81,8 @@
 								<li><a href="invoices.html">Invoice Report </a></li>
 							</ul>
 						</li>
+
+						<li> <a href="index.html"><i class="fas fa-sign-in-alt"></i> <span>GTY Hotel Website</span></a> </li>
 		
 						
 					
@@ -105,7 +107,15 @@
 					<div class="col-md-4">
 					<div class="form-group">
 					<label>Customer ID</label>
-					<input class="form-control" type="text" name="customer_id">
+					<?php
+
+							$result = mysqli_query($connect, "SELECT MAX(customer_id) AS max_cus_num FROM customer");
+							$row = mysqli_fetch_assoc($result);
+							$latest_cus_num = $row['max_cus_num'];
+							$new_cus_num = $latest_cus_num + 1;
+					?>
+
+					<input class="form-control" type="text" name="customer_id" value = "<?php echo $new_cus_num; ?>" readonly>
 					</div>
 					</div>
 					
@@ -151,10 +161,11 @@
 					</div>
 					</div>
 					</div>
-					</form>
+					
 					</div>
 				</div>
 				<input type="submit" class="btn btn-primary buttonedit1" name="addbtn" value="Create Customer">
+				</form>
 			</div>
 		</div>
 	</div>
@@ -202,9 +213,15 @@ if (isset($_POST["addbtn"]))
 	}
 	else
 	{
+		$result = mysqli_query($connect, "SELECT MAX(customer_id) AS max_cus_num FROM customer");
+		$row = mysqli_fetch_assoc($result);
+		$latest_cus_num = $row['max_cus_num'];
+		$new_cus_num = $latest_cus_num + 1;
 	   //else insert into database
 		$success=mysqli_query($connect,"INSERT INTO customer(customer_id,customer_name,customer_email,customer_phone_number,customer_register_date)
-		VALUES ('$cid','$cname','$cemail','$cphonenumber','$cregisterdate')");
+		VALUES ('$new_cus_num','$cname','$cemail','$cphonenumber','$cregisterdate')");
+
+
 		
 		
 		if($success){

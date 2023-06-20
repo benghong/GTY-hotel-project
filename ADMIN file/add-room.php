@@ -81,6 +81,8 @@
 								<li><a href="invoices.html">Invoice Report </a></li>
 							</ul>
 						</li>
+
+						<li> <a href="index.html"><i class="fa-light fa-browser"></i> <span>GTY Customer Website</span></a> </li>
 					</ul>
 				</div>
 			</div>
