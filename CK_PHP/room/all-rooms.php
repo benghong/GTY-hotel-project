@@ -133,7 +133,7 @@
 											<th>Room code:</th>
 											<th>Room Type:</th>
 											<th>Room Price</th>
-											<th>Room Details</th>
+											<th>Room Stock</th>
 											<th class="text-right" colspan="3">Actions</th>
 											</tr>
 										</thead>

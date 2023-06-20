@@ -1,4 +1,4 @@
-<?php include("dataconnection.php")?>
+<?php include("dataconnection.php");?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -47,23 +47,23 @@
 						<li class="list-divider"></li>
 						<li class="submenu"> <a href="#"><i class="fas fa-suitcase"></i> <span> Booking </span> <span class="menu-arrow"></span></a>
 							<ul class="submenu_class" style="display: none;">
-								<li><a href="all-booking.html"> All Booking </a></li>
-								<li><a href="edit-booking.html"> Edit Booking </a></li>
-								<li><a href="add-booking.html"> Add Booking </a></li>
+								<li><a href="all-booking.php"> All Booking </a></li>
+								<li><a href="edit-booking.php"> Edit Booking </a></li>
+								<li><a href="add-booking.php"> Add Booking </a></li>
 							</ul>
 						</li>
 						<li class="submenu"> <a href="#"><i class="fas fa-user"></i> <span> Customers </span> <span class="menu-arrow"></span></a>
 							<ul class="submenu_class" style="display: none;">
-								<li><a href="all-customer.html"> All customers </a></li>
-								<li><a href="edit-customer.html"> Edit Customer </a></li>
+								<li><a href="all-customer.php"> All customers </a></li>
+								<li><a href="edit-customer.php"> Edit Customer </a></li>
 								<li><a href="add-customer.php"> Add Customer </a></li>
 							</ul>
 						</li>
 						<li class="submenu"> <a href="#"><i class="fas fa-key"></i> <span> Rooms </span> <span class="menu-arrow"></span></a>
 							<ul class="submenu_class" style="display: none;">
-								<li><a href="all-rooms.html">All Rooms </a></li>
-								<li><a href="edit-room.html"> Edit Rooms </a></li>
-								<li><a href="add-room.html"> Add Rooms </a></li>
+								<li><a href="all-rooms.php">All Rooms </a></li>
+								<li><a href="edit-room.php"> Edit Rooms </a></li>
+								<li><a href="add-room.php"> Add Rooms </a></li>
 							</ul>
 						</li>
 		
@@ -138,10 +138,11 @@
 									</div>
 								</div>
 
-						</form>
+						
 					</div>
 				</div>
-				<button type="button" name="savebtn" class="btn btn-primary buttonedit ml-3" value="Save New Room Type" >Save</button>
+				<input type="submit" name="savebtn" class="btn btn-primary buttonedit ml-3" value="Save New Room Type" >
+				</form>
 			</div>
 		</div>
 	</div>
@@ -161,7 +162,7 @@
 		});
 	});
 	</script>
-	<script>console.log("hi")</script>
+	
 </body>
 
 </html>
@@ -176,10 +177,10 @@ if (isset($_POST["savebtn"]))
 	$rstock=$_POST["room_stock"];
     $rdetails=$_POST["room_details"];
 	?>
-	<script>console.log("hi")</script>
+	
 	<?php
 	
-	$result = mysqli_query($connect,"SELECT * from room where room_type = '$rtype'" );
+	$result = mysqli_query($connect,"SELECT * FROM room WHERE room_type = '$rtype'" );
 	$count=mysqli_num_rows($result);
 	
 	if ($count != 0)
@@ -192,7 +193,7 @@ if (isset($_POST["savebtn"]))
 	}
 	else
 	{
-	   //else insert into database
+	   //else insert   into database
 		$success=mysqli_query($connect,"INSERT INTO room (room_code,room_type,room_price,room_stock,room_details)
 		VALUES ('$rcode','$rtype','$rprice','$rstock','$rdetails')");
 		
