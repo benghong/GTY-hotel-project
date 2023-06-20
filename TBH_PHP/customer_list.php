@@ -1,4 +1,19 @@
 <?php include("dataconnection.php"); ?>
+<?php
+    //remove room from room list
+    if (isset($_GET["del"])) 
+    {
+        $code=$_GET["code"];
+        //update room table and set room_isdelete to 1
+        $sql=mysqli_query($connect,"UPDATE customer SET customer_isdelete=1 WHERE customer_id='$cid'")
+        ?>
+        <script>
+            alert("Record Deleted.")
+        </script>
+        <?php
+        header("refresh:0.5; url=customer_list.php");
+    }
+?>
 
 <html>
 <head></head>
@@ -38,7 +53,7 @@ function confirmation()
                         <td><?php echo $row["customer_phone_number"]?></td>
                         <td><?php echo $row["customer_register_date"]?></td>
                         <td><?php echo $row["customer_password"]?></td>
-						
+						 
 						<td><a href="edit_customer.php?edit&code=<?php echo $row["customer_id"];?>">Edit</a></td>
 						<td><a href="customer_list.php?del&code=<?php echo $row ["customer_id"];?>" onclick="return confirmation();">Delete</a></td>
 			<?php
@@ -48,18 +63,3 @@ function confirmation()
 </body>
 </html>
 
-<?php
-    //remove room from room list
-    if (isset($_GET["del"])) 
-    {
-        $code=$_GET["code"];
-        //update room table and set room_isdelete to 1
-        $sql=mysqli_query($connect,"UPDATE customer SET customer_isdelete=1 WHERE customer_id='$cid'")
-        ?>
-        <script>
-            alert("Record Deleted.")
-        </script>
-        <?php
-        header("refresh:0.5; url=customer_list.php");
-    }
-?>

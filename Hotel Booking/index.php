@@ -19,10 +19,10 @@
   <section class="head">
     <div class="container flex1">
       <div class="social">
-        <i class="fab fa-facebook-f"></i>
-        <i class="fab fa-twitter"></i>
-        <i class="fab fa-instagram"></i>
-        <i class="fab fa-youtube"></i>
+      <a href="https://www.facebook.com/"> <i class="fab fa-facebook-f"></i> </a>
+      <a href="https://www.twitter.com/"> <i class="fab fa-twitter"></i> </a>
+      <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i> </a>
+      <a href="https://www.youtube.com/"> <i class="fab fa-youtube"></i> </a>
       </div>
       <div class="logo">
         <img src="image/GTY_WHITE.jpeg" alt="">
@@ -39,12 +39,12 @@
     <div class="container">
       <nav class="navbar flex1">
         <div class="sticky_logo logo">
-          <img src="image/logo.jpeg" alt="">
+          <a href="#home"> <img src="image/logo.jpeg" alt=""> </a>
         </div>
 
         <ul class="nav-menu">
           <li> <a href="#home">Home</a> </li>
-          <li> <a href="#about">about</a> </li>
+          <li> <a href="#about">Intro</a> </li>
           <li> <a href="#room">services</a> </li>
           <li> <a href="#services">room</a> </li>
           <li> <a href="#shop">offers</a> </li>
@@ -52,15 +52,13 @@
           <li> <a href="#gallary">gallery</a> </li>
           <li> <a href="bookingform.php">booking</a> </li>
           <li> <a href="#contact">contact</a> </li>
-         
-          
+          <li> <a href="aboutus.html">About us</a> </li>
         </ul>
         <div class="hamburger">
         </div>
-          <span>Log in </span>
-          <span>Register</span>
+        <span><a href="login2.html"> Login/Register </a></span>
+          
      
-      
   </header>
   <script>
     const hamburger = document.querySelector(".hamburger");
@@ -619,36 +617,39 @@
           </div>
     
           <div class="social flex">
-            <i class="fab fa-facebook-f"></i>
-            <i class="fab fa-twitter"></i>
-            <i class="fab fa-instagram"></i>
-            <i class="fab fa-youtube"></i>
+          <a href="https://www.facebook.com/"> <i class="fab fa-facebook-f"></i> </a>
+          <a href="https://www.twitter.com/"><i class="fab fa-twitter"></i> </a>
+          <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i> </a>
+          <a href="https://www.youtube.com/"><i class="fab fa-youtube"></i> </a>
           </div>
         </div>
 
         <div class="box">
           <h2>Quick Links</h2>
           <ul>
-            <li><i class="fas fa-angle-double-right"></i>About Us</li>
-            <li><i class="fas fa-angle-double-right"></i>Booking Form</li>
-            <li><i class="fas fa-angle-double-right"></i>FAQ</li>
-            <li><i class="fas fa-angle-double-right"></i>Contact us</li>
+          <a href="aboutus.html"> <li><i class="fas fa-angle-double-right"></i>About Us</li> </a>
+          <a href="bookingform.php"><li><i class="fas fa-angle-double-right"></i>Booking Form</li></a>
+          <a href="#about"><li><i class="fas fa-angle-double-right"></i>Introduction</li></a>
+          <a href="#home">  <li><i class="fas fa-angle-double-right"></i>Home</li></a>
           </ul>
         </div>
 
         <div class="box">
-          <h2>Services</h2>
+          <h2>Details</h2>
           <ul>
-            <li><i class="fas fa-angle-double-right"></i>Restaurant</li>
-            <li><i class="fas fa-angle-double-right"></i>Events</li>
+          <a href="#services"> <li><i class="fas fa-angle-double-right"></i>Services details</li> </a>
+          <a href="#room"> <li><i class="fas fa-angle-double-right"></i>Room details</li> </a>
+          <a href="#shop"> <li><i class="fas fa-angle-double-right"></i>Offer details</li> </a>
+          <a href="#gallary"> <li><i class="fas fa-angle-double-right"></i>Gallery</li> </a>
+
            
           </ul>
         </div>
         <div class="box">
-          <h2>Services</h2>
+          <h2>Reach Us</h2>
           <div class="icon flex">
             <div class="i">
-              <i class="fas fa-map-marker-alt"></i>
+              <a href="https://www.google.com/maps/place/Sunway+Pyramid+Hotel/@3.0723887,101.6054506,17.52z/data=!4m9!3m8!1s0x31cc4a1a35b2a459:0x13a5f7d3584ce888!5m2!4m1!1i2!8m2!3d3.0721528!4d101.6085037!16s%2Fg%2F11b6_jhx6k?entry=ttu"> <i class="fas fa-map-marker-alt"></i> </a>
             </div>
             <div class="text">
               <h3>Address</h3>
@@ -657,7 +658,7 @@
           </div>
           <div class="icon flex">
             <div class="i">
-              <i class="fas fa-phone"></i>
+            <a href="https://web.whatsapp.com/"><i class="fas fa-phone"></i> </a>
             </div>
             <div class="text">
               <h3>Phone</h3>
@@ -666,7 +667,7 @@
           </div>
           <div class="icon flex">
             <div class="i">
-              <i class="far fa-envelope"></i>
+            <a href="https://www.gmail.com"> <i class="far fa-envelope"></i></a>
             </div>
             <div class="text">
               <h3>Email</h3>

@@ -179,16 +179,14 @@ if (isset($_POST["savebtn"]))
 	<script>console.log("hi")</script>
 	<?php
 	
-	
-	
-	$result = mysqli_query($connect,"SELECT * from room where room_code = '$rcode'" );
+	$result = mysqli_query($connect,"SELECT * from room where room_type = '$rtype'" );
 	$count=mysqli_num_rows($result);
 	
 	if ($count != 0)
 	{
 	?>
 		<script>
-			alert("Room ID already exist. Please change!");
+			alert("Room type already exist. Please change!");
 		</script>
 	<?php
 	}
