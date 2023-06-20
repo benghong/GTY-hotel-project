@@ -1,4 +1,4 @@
-<?php include("dataconnection.php")?>
+<?php include("dataconnection.php");?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -80,38 +80,38 @@
 				<li class="list-divider"></li>
 				<li class="submenu"> <a href="#"><i class="fas fa-suitcase"></i> <span> Booking </span> <span class="menu-arrow"></span></a>
 					<ul class="submenu_class" style="display: none;">
-						<li><a href="all-booking.html"> All Booking </a></li>
-						<li><a href="edit-booking.html"> Edit Booking </a></li>
-						<li><a href="add-booking.html"> Add Booking </a></li>
+						<li><a href="all-booking.php"> All Booking </a></li>
+						<li><a href="edit-booking.php"> Edit Booking </a></li>
+						<li><a href="add-booking.php"> Add Booking </a></li>
 					</ul>
 				</li>
 				<li class="submenu"> <a href="#"><i class="fas fa-user"></i> <span> Customers </span> <span class="menu-arrow"></span></a>
 					<ul class="submenu_class" style="display: none;">
-						<li><a href="all-customer.html"> All customers </a></li>
-						<li><a href="edit-customer.html"> Edit Customer </a></li>
-						<li><a href="add-customer.html"> Add Customer </a></li>
+						<li><a href="all-customer.php"> All customers </a></li>
+						<li><a href="edit-customer.php"> Edit Customer </a></li>
+						<li><a href="add-customer.php"> Add Customer </a></li>
 					</ul>
 				</li>
 				<li class="submenu"> <a href="#"><i class="fas fa-key"></i> <span> Rooms </span> <span class="menu-arrow"></span></a>
 					<ul class="submenu_class" style="display: none;">
-						<li><a href="all-rooms.html">All Rooms </a></li>
-						<li><a href="edit-room.html"> Edit Rooms </a></li>
-						<li><a href="add-room.html"> Add Rooms </a></li>
+						<li><a href="all-rooms.php">All Rooms </a></li>
+						<li><a href="edit-room.php"> Edit Rooms </a></li>
+						<li><a href="add-room.php"> Add Rooms </a></li>
 					</ul>
 				</li>
 
-				<li> <a href="pricing.html"><i class="far fa-money-bill-alt"></i> <span>Pricing</span></a> </li>
+				<li> <a href="pricing.php"><i class="far fa-money-bill-alt"></i> <span>Pricing</span></a> </li>
 
 				<li class="submenu"> <a href="#"><i class="fas fa-key"></i> <span> Calender </span> <span class="menu-arrow"></span></a>
 					<ul class="submenu_class" style="display: none;">
-				<li> <a href="calendar.html"><i class="fas fa-calendar-alt"></i> <span>Event Calendar</span></a> </li>
-				<li><a href="room-calender.html">Room Calender </a></li>
+				<li> <a href="calendar.php"><i class="fas fa-calendar-alt"></i> <span>Event Calendar</span></a> </li>
+				<li><a href="room-calender.php">Room Calender </a></li>
 					</ul>
 				
 				
 				<li class="submenu"> <a href="#"><i class="fe fe-table"></i> <span> Reports </span> <span class="menu-arrow"></span></a>
 					<ul class="submenu_class" style="display: none;">
-						<li><a href="invoices.html">Invoice Report </a></li>
+						<li><a href="invoices.php">Invoice Report </a></li>
 					</ul>
 				</li>
 
@@ -150,20 +150,14 @@
 								<div class="col-md-4">
 									<div class="form-group">
 										<label>Room Code</label>
-										<input class="form-control" type="text" name="room_code" value="<?php echo $row['room_code']; ?>" disable> 
+										<input class="form-control" type="text" name="room_code" value="<?php echo $row['room_code']; ?>" readonly> 
 									</div>
 								</div>
 								<div class="col-md-4">
 									<div class="form-group">
-										<label>Choose the Room Type</label>
-										<select class="form-control" id="sel1" name="room_type" value="<?php echo $row['room_type'];  ?>">
-											<option>Select</option>
-											<option>Exclusive Room</option>
-											<option>Family Room</option>
-											<option>Daily Room</option>
-											<option>Panoramic Room</option>
+										<label>Room Type</label>
+										<input class="form-control" type="text" id="sel1" name="room_type" value="<?php echo $row['room_type'];  ?>" readonly>
 						
-										</select>
 									</div>
 								</div>
 							
@@ -188,10 +182,11 @@
 									</div>
 								</div>
 
-						</form>
+						
 					</div>
 				</div>
-				<button type="button" name="savebtn" class="btn btn-primary buttonedit ml-3" value="Save Edited Room Type" >Save</button>
+				<input type="submit" name="savebtn" class="btn btn-primary buttonedit ml-3" value="Save Edited Room Type" >
+				</form>
 			</div>
 		</div>
 	</div>
