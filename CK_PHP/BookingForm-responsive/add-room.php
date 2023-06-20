@@ -62,6 +62,7 @@
 						<li class="submenu"> <a href="#"><i class="fas fa-key"></i> <span> Rooms </span> <span class="menu-arrow"></span></a>
 							<ul class="submenu_class" style="display: none;">
 								<li><a href="all-rooms.php">All Rooms </a></li>
+								<li><a href="roomtypelist.php">Room Type List </a></li> <!--add room type list-->
 								<li><a href="edit-room.php"> Edit Rooms </a></li>
 								<li><a href="add-room.php"> Add Rooms </a></li>
 							</ul>
@@ -203,7 +204,7 @@ if (isset($_POST["savebtn"]))
 				alert("Record saved!");
 			</script>
 			<?php
-			header("refresh:0.5; url=all-rooms.php");
+			header("refresh:0.5; url=roomtypelist.php");
 		}
 	}
 }

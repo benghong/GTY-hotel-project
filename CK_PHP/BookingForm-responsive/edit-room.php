@@ -95,6 +95,7 @@
 				<li class="submenu"> <a href="#"><i class="fas fa-key"></i> <span> Rooms </span> <span class="menu-arrow"></span></a>
 					<ul class="submenu_class" style="display: none;">
 						<li><a href="all-rooms.php">All Rooms </a></li>
+						<li><a href="roomtypelist.php">Room Type List </a></li> <!--add room type list-->
 						<li><a href="edit-room.php"> Edit Rooms </a></li>
 						<li><a href="add-room.php"> Add Rooms </a></li>
 					</ul>
@@ -150,7 +151,7 @@
 								<div class="col-md-4">
 									<div class="form-group">
 										<label>Room Code</label>
-										<input class="form-control" type="text" name="room_code" value="<?php echo $row['room_code']; ?>" readonly> 
+										<input class="form-control" type="text" name="room_code" value="<?php echo $row['room_code']; ?>" readonly>
 									</div>
 								</div>
 								<div class="col-md-4">
@@ -227,7 +228,7 @@ if (isset($_POST["savebtn"]))
 ?>
 	<script>alert("Record is updated!")</script>
 <?php
-	header("refresh:0.5 url=all-rooms.php"); //redirect user back to room_list.php
+	header("refresh:0.5 url=roomtypelist.php"); //redirect user back to room_list.php
 	
 }
 
