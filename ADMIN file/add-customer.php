@@ -154,7 +154,7 @@
 					</form>
 					</div>
 				</div>
-				<input type="button" class="btn btn-primary buttonedit1" name="addbtn" value="Create Customer">
+				<input type="submit" class="btn btn-primary buttonedit1" name="addbtn" value="Create Customer">
 			</div>
 		</div>
 	</div>
