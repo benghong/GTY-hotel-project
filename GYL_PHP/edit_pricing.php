@@ -12,7 +12,7 @@ if(isset($_GET["edit"]))
 if(isset($_POST["savebtn"])) 	
 {
     $room_type=$_POST["room_type"];
-	$room_price=$_POST["room_price"];
+	$room_price=$_POST["room_prce"];
 	$room_facilities=$_POST["room_facilities"];
 
 	$sql=mysqli_query($connect,"UPDATE pricing SET room_type='$room_type',room_price='$room_price',room_facilities='$room_facilities' WHERE room_type='$roomtype'");
