@@ -340,7 +340,7 @@
               <i class="fas fa-star"></i>
             </div>
             <p> Most suitable room for a family to get with variety of useful items just for families.</p>
-            <h5>From RM130/night</h5>
+            <h5>From RM250/night</h5>
             <button class="flex1">
               <span>Check Availability</span>
               <i class="fas fa-arrow-circle-right"></i>
@@ -382,7 +382,7 @@
               <i class="fas fa-star"></i>
             </div>
             <p> A room that is specialize for couples to have their best moment in the room with items and function that is specialze for them.</p>
-            <h5>From RM120/night</h5>
+            <h5>From RM350/night</h5>
             <button class="flex1">
               <span>Check Availability</span>
               <i class="fas fa-arrow-circle-right"></i>
@@ -407,10 +407,10 @@
         <div class="right">
           <p>GTY Restaurant, where gastronomic excellence meets unparalleled ambiance. We are delighted to have you as our guest and are committed to providing you with an exceptional dining experience that will tantalize your taste buds and create lasting memories.</p>
           <p>Whether you are celebrating a special occasion, enjoying a romantic dinner for two, or simply seeking an unforgettable dining experience, GTY Restaurant offers a charming and intimate setting. Our attention to detail, from the elegant table settings to the soothing background music, creates an ambiance that is both sophisticated and welcoming.</p>
-          <button class="flex1">
+          <!-- <button class="flex1">
             <span>Check Availability</span>
             <i class="fas fa-arrow-circle-right"></i>
-          </button>
+          </button> -->
         </div>
       </div>
     </div>
@@ -433,10 +433,10 @@
             <i class="fal fa-alarm-clock"> 2 Hours left</i>
             <i class="far fa-dot-circle"> Expired after 6 months</i>
           </div>
-          <button class="flex1">
+          <!-- <button class="flex1">
             <span>Check Availability</span>
             <i class="fas fa-arrow-circle-right"></i>
-          </button>
+          </button> -->
         </div>
         <div class="box">
           <h5>UP TO 30% OFF</h5>
@@ -447,10 +447,10 @@
             <i class="fal fa-alarm-clock"> 2 Hours left</i>
             <i class="far fa-dot-circle"> Expired after 6 months</i>
           </div>
-          <button class="flex1">
+          <!-- <button class="flex1">
             <span>Check Availability</span>
             <i class="fas fa-arrow-circle-right"></i>
-          </button>
+          </button> -->
         </div>
         <div class="box">
           <h5>UP TO 30% OFF</h5>
@@ -461,10 +461,10 @@
             <i class="fal fa-alarm-clock">  2 Hours left</i>
             <i class="far fa-dot-circle"> Expired after 6 months</i>
           </div>
-          <button class="flex1">
+          <!-- <button class="flex1">
             <span>Check Availability</span>
             <i class="fas fa-arrow-circle-right"></i>
-          </button>
+          </button> -->
         </div>
       </div>
     </div>

@@ -41,21 +41,21 @@
             <h2 class="title">Sign up</h2>
             <div class="input-field">
               <i class="fas fa-user"></i>
-              <input type="text" placeholder="Username" />
+              <input type="text" placeholder="Username" name="cust_name"/>
             </div>
             <div class="input-field">
               <i class="fas fa-envelope"></i>
-              <input type="email" placeholder="Email" />
+              <input type="email" placeholder="Email" name="cust_email"/>
             </div>
             <div class="input-field">
               <i class="fas fa-lock"></i>
-              <input type="password" placeholder="Password" />
+              <input type="password" placeholder="Password" name="cust_password"/>
             </div>
             <div class="input-field">
                 <i class="fas fa-phone"></i>
-                <input type="text" placeholder="Phone Number" />
+                <input type="text" placeholder="Phone Number" name="cust_phone"/>
               </div>
-            <input type="submit" class="btn" value="Sign up" /> <!--register button name-->
+            <input type="submit" class="btn" value="Sign up" name="registerbtn" /> <!--register button name-->
           </form>
           <!--end of register form-->
         </div>
@@ -103,36 +103,70 @@
   </body>
 </html>
 
+<!--login-->
 <?php
 if(isset($_POST["signinbtn"]))
 {
     $name=$_POST["cust_name"];
     $password=$_POST["cust_password"];
 
-    $checkname=mysqli_query($connect,"SELECT * FROM customer WHERE cust_name='$name'");
+    $checkname=mysqli_query($connect,"SELECT * FROM cus_registerlogin  WHERE cust_name='$name'");
     $resultname=mysqli_num_rows($checkname);
 
-    $checkpassword=mysqli_query($connect,"SELECT * FROM customer WHERE cust_password='$password'");
+    $checkpassword=mysqli_query($connect,"SELECT * FROM cus_registerlogin WHERE cust_password='$password'");
     $resultpassword=mysqli_num_rows($checkpassword);
 
     
 
     if($resultname<=0 || $resultpassword<=0)
     {
-        mysqli_query($connect,"INSERT INTO customer (cust_name,cust_password) VALUES ('$name','$password')");
-        ?>
+        mysqli_query($connect,"INSERT INTO cus_registerlogin (cust_name,cust_password) VALUES ('$name','$password')");
+        
+    }
+      ?>
         <script>
           alert("Login Sucessfully");
         </script>
-        <?php
-    }
+      <?php
+
+    // else
+    // {
+    //   ?>
+    //     <script>
+    //       alert("Invalid username or password");
+    //     </script>
+    //   <?php
+    // }
     
-    $check=mysqli_query($connect,"SELECT * FROM customer WHERE cust_name='$name'");
+    $check=mysqli_query($connect,"SELECT * FROM cus_registerlogin WHERE cust_name='$name'");
     $row=mysqli_fetch_assoc($check);
 
     $code=$row['cust_id'];
     header("refresh:0.5 url=index.php?reserve&code=$code");
 }
+?>
+
+<?php
+// Code user Registration
+if(isset($_POST['registerbtn']))
+{
+  $name=$_POST["cust_name"];
+  $password=$_POST["cust_password"];
+  $email=$_POST['cust_email'];
+  $phone=$_POST['cust_phone'];
+
+  $query=mysqli_query($connect,"INSERT into cus_registerlogin(cust_name,cust_password,cust_email,cust_phone) values('$name','$password','$email','$phone')");
+
+  if($query)
+  {
+	  echo "<script>alert('You are successfully register');</script>";
+  }
+  else
+  {
+  echo "<script>alert('Not register something went worng');</script>";
+  }
+}
+
 ?>
 
 
