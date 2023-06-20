@@ -1,3 +1,5 @@
+<?php include("dataconnection.php"); ?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -14,23 +16,26 @@
     <div class="container">
       <div class="forms-container">
         <div class="signin-signup">
-          <form action="#" class="sign-in-form">
+
+          <!--sign in-->
+          <form action="#" class="sign-in-form" method="post"> 
             <img src="image/GTY_WHITE.jpeg" class="image2">
             <br>
             <h2 class="title">Sign in</h2>
             <div class="input-field">
               <i class="fas fa-user"></i>
-              <input type="text" placeholder="Username" />
+              <input type="text" placeholder="Username" name="cust_name" required/>
             </div>
             <div class="input-field">
               <i class="fas fa-lock"></i>
-              <input type="password" placeholder="Password" />
+              <input type="password" placeholder="Password" name="cust_password" required/>
             </div>
-            <input type="submit" value="Login" class="btn solid" />
-           
-            
+            <input type="submit" value="Login" class="btn solid" name="signinbtn" /> <!--signinbtn button name-->
           </form>
-          <form action="#" class="sign-up-form">
+          <!--end of sign in form-->
+
+          <!--register-->
+          <form action="#" class="sign-up-form" method="post"> 
             <img src="image/GTY_WHITE.jpeg" class="image2">
             <br>
             <h2 class="title">Sign up</h2>
@@ -50,10 +55,9 @@
                 <i class="fas fa-phone"></i>
                 <input type="text" placeholder="Phone Number" />
               </div>
-            <input type="submit" class="btn" value="Sign up" />
-          
-            
+            <input type="submit" class="btn" value="Sign up" /> <!--register button name-->
           </form>
+          <!--end of register form-->
         </div>
       </div>
 
@@ -98,3 +102,37 @@
     <script src="login2.js"></script>
   </body>
 </html>
+
+<?php
+if(isset($_POST["signinbtn"]))
+{
+    $name=$_POST["cust_name"];
+    $password=$_POST["cust_password"];
+
+    $checkname=mysqli_query($connect,"SELECT * FROM customer WHERE cust_name='$name'");
+    $resultname=mysqli_num_rows($checkname);
+
+    $checkpassword=mysqli_query($connect,"SELECT * FROM customer WHERE cust_password='$password'");
+    $resultpassword=mysqli_num_rows($checkpassword);
+
+    
+
+    if($resultname<=0 || $resultpassword<=0)
+    {
+        mysqli_query($connect,"INSERT INTO customer (cust_name,cust_password) VALUES ('$name','$password')");
+        ?>
+        <script>
+          alert("Login Sucessfully");
+        </script>
+        <?php
+    }
+    
+    $check=mysqli_query($connect,"SELECT * FROM customer WHERE cust_name='$name'");
+    $row=mysqli_fetch_assoc($check);
+
+    $code=$row['cust_id'];
+    header("refresh:0.5 url=index.php?reserve&code=$code");
+}
+?>
+
+

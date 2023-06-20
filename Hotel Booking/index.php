@@ -56,7 +56,7 @@
         </ul>
         <div class="hamburger">
         </div>
-        <span><a href="login2.html"> Login/Register </a></span>
+        <span><a href="login2.php"> Login/Register </a></span>
           
      
   </header>
@@ -683,3 +683,9 @@
 
 
 </html>
+
+<?php
+			if(isset($_GET["reserve"])){
+				$cid=$_GET["code"];
+			}
+	?>

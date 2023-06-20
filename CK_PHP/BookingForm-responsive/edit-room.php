@@ -206,7 +206,7 @@
 <script src="assets/js/bootstrap-datetimepicker.min.js"></script>
 
 <script src="assets/js/script.js"></script>
-<script>
+	<script>
 		$(function () {
 			$('#datetimepicker3').datetimepicker({
 				format: 'LT'
@@ -219,17 +219,30 @@
 <?php
 if (isset($_POST["savebtn"])) 	
 {
+	$rcode= $_POST["room_code"];
 	$rtype = $_POST["room_type"];
 	$rprice = $_POST["room_price"];
 	$rstock = $_POST["room_stock"];
     $rdetails = $_POST["room_details"];
 
-	mysqli_query($connect,"UPDATE room SET room_type='$rtype', room_price='$rprice', room_stock='$rstock',room_details='$rdetails' WHERE room_type='$rtype'");
+	$success=mysqli_query($connect,"UPDATE room SET room_code='$rcode', room_type='$rtype', room_price='$rprice', room_stock='$rstock',room_details='$rdetails' WHERE room_type='$rtype'");
 ?>
 	<script>alert("Record is updated!")</script>
 <?php
-	header("refresh:0.5 url=roomtypelist.php"); //redirect user back to room_list.php
-	
+
+if($success)
+{
+	?>
+<script>
+	alert("Customer Table Updated");
+</script>
+
+	<?php
+}
+
+
+header("refresh:0.5 url=roomtypelist.php"); //redirect user back to room_list.php
+
 }
 
 ?>
