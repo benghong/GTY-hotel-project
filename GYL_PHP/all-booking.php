@@ -1,3 +1,4 @@
+<?php include("dataconnection.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -111,7 +112,6 @@
 												<th>Customer Name</th>
 												<th>Customer Phone</th>
 												<th>Customer Email</th>
-                                                <th>Booking Room Code</th>
                                                 <th>Booking Room Type</th>
 												<th>Booking Room Price</th>
 												<th>Booking Date</th>
@@ -130,7 +130,7 @@
             <?php
 		    
 
-            $result = mysqli_query($connect, "SELECT * FROM booking JOIN room ON booking_id=room_id");		
+            $result = mysqli_query($connect, "SELECT * FROM booking");		
             $count=mysqli_num_rows($result);
             if ($count < 1)
             {
@@ -156,7 +156,6 @@
                                                 </td>
 												<td><?php echo $row["cus_phone"]; ?></td>
 												<td><?php echo $row["cus_email"]; ?></td>
-                                                <td><?php echo $row["booking_room_code"]; ?></td>
                                                 <td><?php echo $row["booking_room_type"]; ?></td>
                                                 <td><?php echo $row["booking_room_price"]; ?></td>
 												<td><?php echo $row["booking_date"]; ?></td>
