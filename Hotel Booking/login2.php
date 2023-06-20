@@ -74,7 +74,7 @@
             <br><br>
             <br>
             <h4>For Admin</h4>
-            <a href="index.html" ><button class="btn transparent" id="sign-up-btn">
+            <a href="index.php" ><button class="btn transparent" id="sign-up-btn">
               Admin
             </button> </a>
              

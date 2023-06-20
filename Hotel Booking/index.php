@@ -103,7 +103,7 @@
         <div class="box">
           <button class="flex1">
             <span>Check Availability</span>
-            <i class="fas fa-arrow-circle-right"></i>
+            <a href="bookingform.php"><i class="fas fa-arrow-circle-right"></i>
           </button>
         </div>
       </div>
@@ -122,10 +122,10 @@
           <h3>The best experience for the best price</h3>
           <p>Welcome to GTY Hotel! We are thrilled to have you as our guest and to provide you with an exceptional stay experience. At GTY Hotel, we strive to create a perfect blend of luxury, comfort, and personalized service to ensure that your stay with us is truly unforgettable.</p>
           <p>We take pride in offering a wide range of well-appointed rooms and suites that cater to the diverse needs of our guests. Each accommodation is designed with meticulous attention to detail, ensuring a comfortable and relaxing ambiance. Whether you're traveling for business or leisure, we have the perfect space for you to unwind and rejuvenate.</p>
-          <button class="flex1">
+          <!-- <button class="flex1">
             <span>Check Availability</span>
             <i class="fas fa-arrow-circle-right"></i>
-          </button>
+          </button> -->
         </div>
         <div class="right">
           <img src="image/a.png" alt="">
