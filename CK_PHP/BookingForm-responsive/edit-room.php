@@ -28,11 +28,11 @@
 <div class="header">
 
 <div class="header-left">
-<a href="index.html" class="logo">
+<a href="index.php" class="logo">
 <img src="assets/img/hotel_logo.png" width="50" height="70" alt="logo">
 <span class="logoclass">HOTEL</span>
 </a>
-<a href="index.html" class="logo logo-small">
+<a href="index.php" class="logo logo-small">
 <img src="assets/img/hotel_logo.png" alt="Logo" width="30" height="30">
 </a>
 </div>
@@ -63,8 +63,8 @@
 	<h6>User</h6>
 </div>
 </div>
-<a class="dropdown-item" href="profile.html">My Profile</a>
-<a class="dropdown-item" href="login.html">Logout</a>
+<a class="dropdown-item" href="profile.php">My Profile</a>
+<a class="dropdown-item" href="login2.php">Logout</a>
 </div>
 </li>
 
@@ -76,7 +76,7 @@
 	<div class="sidebar-inner slimscroll">
 		<div id="sidebar-menu" class="sidebar-menu">
 			<ul>
-				<li> <a href="index.html"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a> </li>
+				<li> <a href="index.php"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a> </li>
 				<li class="list-divider"></li>
 				<li class="submenu"> <a href="#"><i class="fas fa-suitcase"></i> <span> Booking </span> <span class="menu-arrow"></span></a>
 					<ul class="submenu_class" style="display: none;">
@@ -94,7 +94,7 @@
 				</li>
 				<li class="submenu"> <a href="#"><i class="fas fa-key"></i> <span> Rooms </span> <span class="menu-arrow"></span></a>
 					<ul class="submenu_class" style="display: none;">
-						<li><a href="all-rooms.php">All Rooms </a></li>
+						<!-- <li><a href="all-rooms.php">All Rooms </a></li> -->
 						<li><a href="roomtypelist.php">Room Type List </a></li> <!--add room type list-->
 						<li><a href="edit-room.php"> Edit Rooms </a></li>
 						<li><a href="add-room.php"> Add Rooms </a></li>
@@ -206,7 +206,7 @@
 <script src="assets/js/bootstrap-datetimepicker.min.js"></script>
 
 <script src="assets/js/script.js"></script>
-<script>
+	<script>
 		$(function () {
 			$('#datetimepicker3').datetimepicker({
 				format: 'LT'
@@ -219,17 +219,30 @@
 <?php
 if (isset($_POST["savebtn"])) 	
 {
+	$rcode= $_POST["room_code"];
 	$rtype = $_POST["room_type"];
 	$rprice = $_POST["room_price"];
 	$rstock = $_POST["room_stock"];
     $rdetails = $_POST["room_details"];
 
-	mysqli_query($connect,"UPDATE room SET room_type='$rtype', room_price='$rprice', room_stock='$rstock',room_details='$rdetails' WHERE room_type='$rtype'");
+	$success=mysqli_query($connect,"UPDATE room SET room_code='$rcode', room_type='$rtype', room_price='$rprice', room_stock='$rstock',room_details='$rdetails' WHERE room_type='$rtype'");
 ?>
 	<script>alert("Record is updated!")</script>
 <?php
-	header("refresh:0.5 url=roomtypelist.php"); //redirect user back to room_list.php
-	
+
+if($success)
+{
+	?>
+<script>
+	alert("Customer Table Updated");
+</script>
+
+	<?php
+}
+
+
+header("refresh:0.5 url=roomtypelist.php"); //redirect user back to room_list.php
+
 }
 
 ?>
