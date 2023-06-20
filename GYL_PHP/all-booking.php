@@ -1,3 +1,4 @@
+<?php include("dataconnection.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,18 +8,18 @@
 	<title>Hotel Dashboard Template</title>
 	<link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
 	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
-	<link rel="stylesheet" href="assets/plugins/fontawesome/css/fontawesome.min.css">
 	<link rel="stylesheet" href="assets/plugins/fontawesome/css/all.min.css">
+	<link rel="stylesheet" href="assets/plugins/fontawesome/css/fontawesome.min.css">
+	<link rel="stylesheet" href="assets/plugins/datatables/datatables.min.css">
 	<link rel="stylesheet" href="assets/css/feathericon.min.css">
 	<link rel="stylesheet" href="assets/plugins/morris/morris.css">
-	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap-datetimepicker.min.css">
 	<link rel="stylesheet" href="assets/css/style.css"> </head>
 
 <body>
 	<div class="main-wrapper">
 		<div class="header">
 			<div class="header-left">
-				<a href="index.html" class="logo"> <img src="assets/img/hotel_logo.png" width="50" height="70" alt="logo"> <span class="logoclass">HOTEL</span> </a>
+				<a href="index.html" class="logo"> <img src="assets/img/hotel_logo.png" width="50" height="70" alt="logo"> <span class="logoclass">GTY HOTEL</span> </a>
 				<a href="index.html" class="logo logo-small"> <img src="assets/img/hotel_logo.png" alt="Logo" width="30" height="30"> </a>
 			</div>
 			<a href="javascript:void(0);" id="toggle_btn"> <i class="fe fe-text-align-left"></i> </a>
@@ -26,7 +27,7 @@
 			<ul class="nav user-menu">
 				
 				<li class="nav-item dropdown has-arrow">
-					<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown"> <span class="user-img"><img class="rounded-circle" src="assets/img/profiles/avatar-01.jpg" width="31" alt="user"></span> </a>
+					<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown"> <span class="user-img"><img class="rounded-circle" src="assets/img/profiles/avatar-01.jpg" width="31" alt="Soeng Souy"></span> </a>
 					<div class="dropdown-menu">
 						<div class="user-header">
 							<div class="avatar avatar-sm"> <img src="assets/img/profiles/avatar-01.jpg" alt="User Image" class="avatar-img rounded-circle"> </div>
@@ -54,7 +55,7 @@
 							<ul class="submenu_class" style="display: none;">
 								<li><a href="all-customer.html"> All customers </a></li>
 								<li><a href="edit-customer.html"> Edit Customer </a></li>
-								<li><a href="add-customer.php"> Add Customer </a></li>
+								<li><a href="add-customer.html"> Add Customer </a></li>
 							</ul>
 						</li>
 						<li class="submenu"> <a href="#"><i class="fas fa-key"></i> <span> Rooms </span> <span class="menu-arrow"></span></a>
@@ -81,91 +82,117 @@
 						</li>
 		
 						
+					
 						
 					</ul>
 				</div>
 			</div>
 		</div>
+
 		<div class="page-wrapper">
 			<div class="content container-fluid">
 				<div class="page-header">
 					<div class="row align-items-center">
 						<div class="col">
-							<h3 class="page-title mt-5">Add Room</h3> </div>
+							<div class="mt-5">
+								<h4 class="card-title float-left mt-2">Appointments</h4>
+                            </div>
+						</div>
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-lg-12">
-						<form>
-							<div class="row formtype">
-								<div class="col-md-4">
-									<div class="form-group">
-										<label>Room Code</label>
-										<input class="form-control" type="text" value="001"> </div>
-								</div>
-								<div class="col-md-4">
-									<div class="form-group">
-										<label>New Room Type</label>
-										<select class="form-control" id="sel1" name="sellist1">
-											<option>Select</option>
-											<option>Exclusive Room</option>
-											<option>Family Room</option>
-											<option>Daily Room</option>
-											<option>Panoramic Room</option>
-						
-										</select>
-									</div>
-								</div>
-							
-								<div class="col-md-4">
-									<div class="form-group">
-										<label>Price</label>
-										<input type="text" class="form-control" id="sel3" name="sellist1" placeholder="Enter the price" required>
-								
-									</div>
-								</div>
-								<div class="col-md-4">
-									<div class="form-group">
-										<label>Quantity of New Rooms:</label>
-										<input type="number" class="form-control" id="" name="sellist1">		
-									</div>
-								</div>
-								
-								<div class="col-md-4">
-									<div class="form-group">
-										<label>Details</label>
-										<textarea class="form-control" rows="3" id="comment" name="sellist1"></textarea>
-									</div>
-								</div>
+					<div class="col-sm-12">
+						<div class="card card-table">
+							<div class="card-body booking_card">
+								<div class="table-responsive">
+									<table class="datatable table table-stripped table table-hover table-center mb-0">
+										<thead>
+											<tr>
+												<th>Booking ID</th>
+												<th>Customer Name</th>
+												<th>Customer Phone</th>
+												<th>Customer Email</th>
+                                                <th>Booking Room Type</th>
+												<th>Booking Room Price</th>
+												<th>Booking Date</th>
+												<th>Checkin Date</th>
+												<th>Checkin Time</th>
+												<th>Checkout Date</th>
+												<th>Checkout Time</th>
+												<th>Customer Quantity</th>
+											
 
-								
-								
-								
-							
-						</form>
+                                            
+												
+											</tr>
+										</thead>
+
+            <?php
+		    
+
+            $result = mysqli_query($connect, "SELECT * FROM booking");		
+            $count=mysqli_num_rows($result);
+            if ($count < 1)
+            {
+            
+            
+                echo"<br> No Records Found";
+            
+            
+            }
+            else{
+                while($row = mysqli_fetch_assoc($result))
+                {
+            ?>	
+                                        
+										<tbody>
+											<tr>
+												<td><?php echo $row["booking_id"];?></td>
+												<td>
+													<h2 class="table-avatar">
+                                                    <?php echo $row["cus_name"];?> 
+                                                   
+                                                    </h2>
+                                                </td>
+												<td><?php echo $row["cus_phone"]; ?></td>
+												<td><?php echo $row["cus_email"]; ?></td>
+                                                <td><?php echo $row["booking_room_type"]; ?></td>
+                                                <td><?php echo $row["booking_room_price"]; ?></td>
+												<td><?php echo $row["booking_date"]; ?></td>
+												<td><?php echo $row["cus_checkin"]; ?></td>
+												<td><?php echo $row["cus_checkintime"]; ?></td>
+												<td><?php echo $row["cus_checkout"]; ?></td>
+												<td><?php echo $row["cus_checkouttime"]; ?></td>
+												<td><?php echo $row["cus_qty"]; ?></td>
+											
+												
+												
+											</tr>
+											
+										</tbody>
+                                        <?php
+	}
+}
+?>
+									</table>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
-				<button type="button" class="btn btn-primary buttonedit ml-3">Save</button>
-			
 			</div>
+			
 		</div>
 	</div>
+	<script data-cfasync="false" src="../../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
 	<script src="assets/js/jquery-3.5.1.min.js"></script>
 	<script src="assets/js/popper.min.js"></script>
 	<script src="assets/js/bootstrap.min.js"></script>
-	<script src="assets/js/moment.min.js"></script>
-	<script src="assets/js/select2.min.js"></script>
+	<script src="assets/plugins/datatables/jquery.dataTables.min.js"></script>
+	<script src="assets/plugins/datatables/datatables.min.js"></script>
 	<script src="assets/plugins/slimscroll/jquery.slimscroll.min.js"></script>
 	<script src="assets/plugins/raphael/raphael.min.js"></script>
-	<script src="assets/js/bootstrap-datetimepicker.min.js"></script>
 	<script src="assets/js/script.js"></script>
-	<script>
-	$(function() {
-		$('#datetimepicker3').datetimepicker({
-			format: 'LT'
-		});
-	});
-	</script>
 </body>
 
 </html>

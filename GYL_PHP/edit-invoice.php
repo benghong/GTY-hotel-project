@@ -1,4 +1,27 @@
 <?php include("dataconnection.php"); ?>
+
+<?php
+if (isset($_POST["savebtn"])) 	
+{
+	$cname=$_POST["cust_name"];
+	$invdate=$_POST["inv_date"];
+	$invamount=$_POST["inv_amount"];
+	$invstatus=$_POST["inv_status"];
+
+	mysqli_query($connect,"UPDATE invoice SET invoice_customer_name='$cname',invoice_date='$invdate',invoice_amount='$invamount',invoice_status='$invstatus' WHERE invoice_number='$invnum'");
+
+    ?>
+    <script>
+		alert("Record is updated!");
+	</script>
+	<?php
+	header("refresh:0.5 url=invoice_list.php");
+}
+
+?>
+
+	
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -165,7 +188,7 @@
 	<div class="col-md-3">
 		<div class="form-group">
 			<label>Customer Name</label>
-			<input class="form-control" type="text" id="sel1" name="cust_name" value="<?php echo $row['invoice_customer_name'];  ?>">
+			<input class="form-control" type="text" id="sel1" name="cust_name" value="<?php echo $row['invoice_customer_name'];  ?>"placeholder="Enter the new customer name" required>
 			</div>
 		</div>
 		
@@ -174,7 +197,7 @@
 	<div class="form-group">
 	<label>Invoice date <span class="text-danger">*</span></label>
 	<div class="cal-icon">
-	<input type="date" name="inv_date" value="<?php echo $row['invoice_date'];  ?>">
+	<input type="date" name="inv_date" value="<?php echo $row['invoice_date'];  ?> " required>
 	</div>
 	</div>
 	</div>
@@ -183,14 +206,14 @@
 <div class="col-md-3">
 	<div class="form-group">
 		<label>Amount</label>
-		<input class="form-control" type="text" name="inv_amount" value="<?php echo $row['invoice_amount'];  ?>">
+		<input class="form-control" type="text" name="inv_amount" value="<?php echo $row['invoice_amount'];  ?>"placeholder="Enter the new amount" required>
 		</div>
 </div>
 
 <div class="col-md-3">
 <div class="form-group">
 <label>In/Out Customer</label>
-<select class="form-control" id="sel1" name="inv_status">
+<select class="form-control" id="sel1" name="inv_status" required>
 <option value="in_customer" <?php if($row['invoice_status']=="in_customer")
 														echo "selected";
   									                   ?> >In Customer</option>

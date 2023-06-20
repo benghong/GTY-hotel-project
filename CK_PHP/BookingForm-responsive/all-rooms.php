@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿<?php include("dataconnection.php") ;?>
+
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -18,8 +20,8 @@
 	<div class="main-wrapper">
 		<div class="header">
 			<div class="header-left">
-				<a href="index.html" class="logo"> <img src="assets/img/hotel_logo.png" width="50" height="70" alt="logo"> <span class="logoclass">HOTEL</span> </a>
-				<a href="index.html" class="logo logo-small"> <img src="assets/img/hotel_logo.png" alt="Logo" width="30" height="30"> </a>
+				<a href="index.php" class="logo"> <img src="assets/img/hotel_logo.png" width="50" height="70" alt="logo"> <span class="logoclass">HOTEL</span> </a>
+				<a href="index.php" class="logo logo-small"> <img src="assets/img/hotel_logo.png" alt="Logo" width="30" height="30"> </a>
 			</div>
 			<a href="javascript:void(0);" id="toggle_btn"> <i class="fe fe-text-align-left"></i> </a>
 			<a class="mobile_btn" id="mobile_btn"> <i class="fas fa-bars"></i> </a>
@@ -33,7 +35,7 @@
 							<div class="user-text">
 								<h6>User</h6>
 							</div>
-						</div> <a class="dropdown-item" href="profile.html">My Profile</a> <a class="dropdown-item" href="login.html">Logout</a> </div>
+						</div> <a class="dropdown-item" href="profile.php">My Profile</a> <a class="dropdown-item" href="login2.php">Logout</a> </div>
 				</li>
 			</ul>
 		</div>
@@ -41,42 +43,43 @@
 			<div class="sidebar-inner slimscroll">
 				<div id="sidebar-menu" class="sidebar-menu">
 					<ul>
-						<li> <a href="index.html"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a> </li>
+						<li> <a href="index.php"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a> </li>
 						<li class="list-divider"></li>
 						<li class="submenu"> <a href="#"><i class="fas fa-suitcase"></i> <span> Booking </span> <span class="menu-arrow"></span></a>
 							<ul class="submenu_class" style="display: none;">
-								<li><a href="all-booking.html"> All Booking </a></li>
-								<li><a href="edit-booking.html"> Edit Booking </a></li>
-								<li><a href="add-booking.html"> Add Booking </a></li>
+								<li><a href="all-booking.php"> All Booking </a></li>
+								<li><a href="edit-booking.php"> Edit Booking </a></li>
+								<li><a href="add-booking.php"> Add Booking </a></li>
 							</ul>
 						</li>
 						<li class="submenu"> <a href="#"><i class="fas fa-user"></i> <span> Customers </span> <span class="menu-arrow"></span></a>
 							<ul class="submenu_class" style="display: none;">
-								<li><a href="all-customer.html"> All customers </a></li>
-								<li><a href="edit-customer.html"> Edit Customer </a></li>
+								<li><a href="all-customer.php"> All customers </a></li>
+								<li><a href="edit-customer.php"> Edit Customer </a></li>
 								<li><a href="add-customer.php"> Add Customer </a></li>
 							</ul>
 						</li>
 						<li class="submenu"> <a href="#"><i class="fas fa-key"></i> <span> Rooms </span> <span class="menu-arrow"></span></a>
 							<ul class="submenu_class" style="display: none;">
-								<li><a href="all-rooms.html">All Rooms </a></li>
-								<li><a href="edit-room.html"> Edit Rooms </a></li>
-								<li><a href="add-room.html"> Add Rooms </a></li>
+								<!-- <li><a href="all-rooms.php">All Rooms </a></li> -->
+								<li><a href="roomtypelist.php">Room Type List </a></li> <!--add room type list-->
+								<li><a href="edit-room.php"> Edit Rooms </a></li>
+								<li><a href="add-room.php"> Add Rooms </a></li>
 							</ul>
 						</li>
 		
-						<li> <a href="pricing.html"><i class="far fa-money-bill-alt"></i> <span>Pricing</span></a> </li>
+						<li> <a href="pricing.php"><i class="far fa-money-bill-alt"></i> <span>Pricing</span></a> </li>
 		
 						<li class="submenu"> <a href="#"><i class="fas fa-key"></i> <span> Calender </span> <span class="menu-arrow"></span></a>
 							<ul class="submenu_class" style="display: none;">
-						<li> <a href="calendar.html"><i class="fas fa-calendar-alt"></i> <span>Event Calendar</span></a> </li>
-						<li><a href="room-calender.html">Room Calender </a></li>
+						<li> <a href="calendar.php"><i class="fas fa-calendar-alt"></i> <span>Event Calendar</span></a> </li>
+						<li><a href="room-calender.php">Room Calender </a></li>
 							</ul>
 						
 						
 						<li class="submenu"> <a href="#"><i class="fe fe-table"></i> <span> Reports </span> <span class="menu-arrow"></span></a>
 							<ul class="submenu_class" style="display: none;">
-								<li><a href="invoices.html">Invoice Report </a></li>
+								<li><a href="invoices.php">Invoice Report </a></li>
 							</ul>
 						</li>
 		
@@ -93,7 +96,7 @@
 					<div class="row align-items-center">
 						<div class="col">
 							<div class="mt-5">
-								<h4 class="card-title float-left mt-2">All Rooms</h4> <a href="add-room.html" class="btn btn-primary float-right veiwbutton">Add Room</a> </div>
+								<h4 class="card-title float-left mt-2">All Rooms</h4> <a href="add-room.php" class="btn btn-primary float-right veiwbutton">Add Room</a> </div>
 						</div>
 					</div>
 				</div>
@@ -112,7 +115,7 @@
 												<th>Check-In Date</th>
 												<th>Check-Out Date</th>
 												<th>Email</th>
-												<th>ContactNo.</th>
+												
 												<th>Status</th>
 												<th class="text-right">Actions</th>
 											</tr>
@@ -140,7 +143,7 @@
 													<div class="dropdown dropdown-action"> 
 														<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fas fa-ellipsis-v ellipse_color"></i></a>
 														<div class="dropdown-menu dropdown-menu-right"> 
-															<a class="dropdown-item" href="edit-room.html"><i class="fas fa-pencil-alt m-r-5"></i> Edit</a> 
+															<a class="dropdown-item" href="edit-room.php"><i class="fas fa-pencil-alt m-r-5"></i> Edit</a> 
 															<a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_asset"><i class="fas fa-trash-alt m-r-5"></i> Delete</a> 
 														</div>
 													</div>
@@ -165,7 +168,7 @@
 												</td>
 												<td class="text-right">
 													<div class="dropdown dropdown-action"> <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fas fa-ellipsis-v ellipse_color"></i></a>
-														<div class="dropdown-menu dropdown-menu-right"> <a class="dropdown-item" href="edit-room.html"><i class="fas fa-pencil-alt m-r-5"></i> Edit</a> <a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_asset"><i class="fas fa-trash-alt m-r-5"></i> Delete</a> </div>
+														<div class="dropdown-menu dropdown-menu-right"> <a class="dropdown-item" href="edit-room.php"><i class="fas fa-pencil-alt m-r-5"></i> Edit</a> <a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_asset"><i class="fas fa-trash-alt m-r-5"></i> Delete</a> </div>
 													</div>
 												</td>
 											</tr>
@@ -189,7 +192,7 @@
 												</td>
 												<td class="text-right">
 													<div class="dropdown dropdown-action"> <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fas fa-ellipsis-v ellipse_color"></i></a>
-														<div class="dropdown-menu dropdown-menu-right"> <a class="dropdown-item" href="edit-room.html"><i class="fas fa-pencil-alt m-r-5"></i> Edit</a> <a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_asset"><i class="fas fa-trash-alt m-r-5"></i> Delete</a> </div>
+														<div class="dropdown-menu dropdown-menu-right"> <a class="dropdown-item" href="edit-room.php"><i class="fas fa-pencil-alt m-r-5"></i> Edit</a> <a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_asset"><i class="fas fa-trash-alt m-r-5"></i> Delete</a> </div>
 													</div>
 												</td>
 											</tr>

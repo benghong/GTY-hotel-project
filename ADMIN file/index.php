@@ -18,8 +18,8 @@
 	<div class="main-wrapper">
 		<div class="header">
 			<div class="header-left">
-				<a href="index.html" class="logo"> <img src="assets/img/hotel_logo.png" width="50" height="70" alt="logo"> <span class="logoclass">HOTEL</span></a>
-				<a href="index.html" class="logo logo-small"> <img src="assets/img/hotel_logo.png" alt="Logo" width="30" height="30"> </a>
+				<a href="index.php" class="logo"> <img src="assets/img/hotel_logo.png" width="50" height="70" alt="logo"> <span class="logoclass">HOTEL</span></a>
+				<a href="index.php" class="logo logo-small"> <img src="assets/img/hotel_logo.png" alt="Logo" width="30" height="30"> </a>
 			</div>
 			<a href="javascript:void(0);" id="toggle_btn"> <i class="fe fe-text-align-left"></i> </a>
 			<a class="mobile_btn" id="mobile_btn"> <i class="fas fa-bars"></i> </a>
@@ -34,7 +34,7 @@
 								<h6>User</h6>
 								
 							</div>
-						</div> <a class="dropdown-item" href="profile.html">My Profile</a>  <a class="dropdown-item" href="login.html">Logout</a> </div>
+						</div> <a class="dropdown-item" href="profile.html">My Profile</a>  <a class="dropdown-item" href="login2.php">Logout</a> </div>
 				</li>
 			</ul>
 			
@@ -43,13 +43,13 @@
 			<div class="sidebar-inner slimscroll">
 				<div id="sidebar-menu" class="sidebar-menu">
 					<ul>
-						<li> <a href="index.html"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a> </li>
+						<li> <a href="index.php"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a> </li>
 						<li class="list-divider"></li>
 						<li class="submenu"> <a href="#"><i class="fas fa-suitcase"></i> <span> Booking </span> <span class="menu-arrow"></span></a>
 							<ul class="submenu_class" style="display: none;">
-								<li><a href="all-booking.html"> Booking List</a></li>
-								<li><a href="edit-booking.html"> Edit Booking </a></li>
-								<li><a href="bookingform.html"> Add Booking </a></li>
+								<li><a href="all-booking.php"> Booking List</a></li>
+								<li><a href="edit-booking.php"> Edit Booking </a></li>
+								<li><a href="bookingform.php"> Add Booking </a></li>
 							</ul>
 						</li>
 						<li class="submenu"> <a href="#"><i class="fas fa-user"></i> <span> Customers </span> <span class="menu-arrow"></span></a>
@@ -67,22 +67,22 @@
 							</ul>
 						</li>
 		
-						<li> <a href="pricing.html"><i class="far fa-money-bill-alt"></i> <span>Pricing</span></a> </li>
+						<li> <a href="pricing.php"><i class="far fa-money-bill-alt"></i> <span>Pricing</span></a> </li>
 		
-						<li class="submenu"> <a href="#"><i class="fas fa-key"></i> <span> Calender </span> <span class="menu-arrow"></span></a>
+						<!-- <li class="submenu"> <a href="#"><i class="fas fa-key"></i> <span> Calender </span> <span class="menu-arrow"></span></a>
 							<ul class="submenu_class" style="display: none;">
 						<li> <a href="calendar.html"><i class="fas fa-calendar-alt"></i> <span>Event Calendar</span></a> </li>
 						<li><a href="room-calender.html">Room Calender </a></li>
-							</ul>
+							</ul> -->
 						
 						
 						<li class="submenu"> <a href="#"><i class="fe fe-table"></i> <span> Reports </span> <span class="menu-arrow"></span></a>
 							<ul class="submenu_class" style="display: none;">
-								<li><a href="invoices.html">Invoice Report </a></li>
+								<li><a href="invoices.php">Invoice Report </a></li>
 							</ul>
 						</li>
 
-						<li> <a href="index.html"><i class="fas fa-sign-in-alt"></i> <span>GTY Hotel Website</span></a> </li>
+						<li> <a href="index.php"><i class="fas fa-sign-in-alt"></i> <span>GTY Hotel Website</span></a> </li>
 		
 						
 					</ul>

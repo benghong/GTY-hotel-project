@@ -148,21 +148,21 @@ if (isset($_POST["savebtn"]))
 <div class="col-md-4">
 <div class="form-group">
 <label>Room Type</label>
-<input class="form-control" type="text" name="room_type">
+<input class="form-control" type="text" name="room_type" placeholder="Enter room type" required>
 </div>
 </div>
 
 <div class="col-md-4">
 <div class="form-group">
 <label>Room Price</label>
-<input class="form-control" type="text" name="room_price">
+<input class="form-control" type="number" name="room_price" placeholder="Enter room price" required>
 </div>
 </div>
 
 <div class="col-md-4">
 <div class="form-group">
 <label>Room Facilities</label>
-<textarea cols="30" rows="6" class="form-control" name="room_facilities"></textarea>
+<textarea cols="30" rows="6" class="form-control" name="room_facilities"placeholder="Enter room facilities" required></textarea>
 </div>
 </div>
 
