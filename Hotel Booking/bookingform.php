@@ -5,7 +5,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>GTY_HOTEL:Booking Page</title>
-	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/bookingformstyle.css">
 	<!-- Font -->
 	<link href="https://fonts.googleapis.com/css?family=Raleway:400,600,700,900" rel="stylesheet">
 </head>

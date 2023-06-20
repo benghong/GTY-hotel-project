@@ -50,7 +50,7 @@
           <li> <a href="#shop">offers</a> </li>
           <li> <a href="#testimonials">Review</a> </li>
           <li> <a href="#gallary">gallery</a> </li>
-          <li> <a href="bookingform.php">booking</a> </li>
+          <li> <a href="booking.php">booking</a> </li>
           <li> <a href="#contact">contact</a> </li>
           <li> <a href="aboutus.html">About us</a> </li>
         </ul>
