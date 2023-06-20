@@ -103,7 +103,7 @@
         <div class="box">
           <button class="flex1">
             <span>Check Availability</span>
-            <a href="bookingform.php"><i class="fas fa-arrow-circle-right"></i>
+            <a href="bookingform.php"><i class="fas fa-arrow-circle-right"></i></a>
           </button>
         </div>
       </div>

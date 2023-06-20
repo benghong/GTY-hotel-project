@@ -92,6 +92,6 @@ if(isset($_POST["adminlogin"]))
     $row=mysqli_fetch_assoc($check);
 
     $code=$row['admin_id'];
-    header("refresh:0.5 url=ADMIN file\index.php?reserve&code=$code");
+    header("refresh:0.5 url=userindex.php?reserve&code=$code");
 }
 ?>

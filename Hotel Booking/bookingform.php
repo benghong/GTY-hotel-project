@@ -17,14 +17,14 @@
 <header class="header" id="navigation-menu">
     <div class="container">
       <nav>
-        <a href="index.php" class="logo"> <img src="image/logo.jpeg" alt=""> </a>
+        <a href="userindex.php" class="logo"> <img src="image/logo.jpeg" alt=""> </a>
 		<ul class="nav-menu">
-			<li> <a href="index.php">Home</a> </li>
-            <li> <a href="index.php#about" >Intro</a> </li>
-            <li> <a href="index.php#room" class="nav-link">Rooms</a> </li>
-			<li> <a href="index.php#testimonials" class="nav-link">Review</a> </li>
-			<li> <a href="index.php#gallary" class="nav-link" >Gallery</a> </li>
-			<li> <a href="index.php#contact" class="nav-link">Contact</a> </li>
+			<li> <a href="userindex.php">Home</a> </li>
+            <li> <a href="userindex.php#about" >Intro</a> </li>
+            <li> <a href="userindex.php#room" class="nav-link">Rooms</a> </li>
+			<li> <a href="userindex.php#testimonials" class="nav-link">Review</a> </li>
+			<li> <a href="userindex.php#gallary" class="nav-link" >Gallery</a> </li>
+			<li> <a href="userindex.php#contact" class="nav-link">Contact</a> </li>
 		  </ul>
   
 		  <div class="hambuger">
