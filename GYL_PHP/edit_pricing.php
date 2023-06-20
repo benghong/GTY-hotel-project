@@ -180,20 +180,20 @@ if(isset($_POST["savebtn"]))
 <div class="col-md-4">
 <div class="form-group">
 <label>Room Type</label>
-<input class="form-control" type="text" name="room_type" value="<?php echo $row['room_type']; ?>">
+<input class="form-control" type="text" name="room_type" value="<?php echo $row['room_type']; ?>" placeholder="Enter the new room type" required>
 </div>
 </div>
 <div class="col-md-4">
 <div class="form-group">
 <label>Room Price</label>
-<input class="form-control" type="text" name="room_price" value="<?php echo $row['room_price']; ?>">
+<input class="form-control" type="number" name="room_price" value="<?php echo $row['room_price']; ?>" placeholder="Enter the new room price" required>
 </div>
 </div>
 
 <div class="col-md-4">
 <div class="form-group">
 <label>Room Facilities</label>
-<textarea cols="30" rows="6" class="form-control" name="room_facilities"><?php echo $row['room_facilities']; ?></textarea>
+<textarea cols="30" rows="6" class="form-control" name="room_facilities" placeholder="Enter room facilities" required><?php echo $row['room_facilities']; ?></textarea>
 
 </div>
 </div>

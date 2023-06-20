@@ -200,6 +200,8 @@ Invoice</a>
 </div>
 </div>
 
+<h5 class="card-title float-left mt-2">Invoices Search</h5>
+
 <div class="row">
 <div class="col-sm-12">
 <div class="card card-table">
@@ -289,7 +291,7 @@ if(isset($_GET["searchbtn"]))
 </div>
 </div>
 
-
+<h5 class="card-title float-left mt-2">Invoice List</h5>
 
 <div class="row">
 <div class="col-sm-12">

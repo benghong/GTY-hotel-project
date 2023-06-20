@@ -211,16 +211,16 @@ if (isset($_POST["savebtn"]))
 	<div class="col-md-3">
 		<div class="form-group">
 			<label>Customer Name</label>
-			<input class="form-control" type="text" id="sel1" name="cust_name">
+			<input class="form-control" type="text" id="sel1" name="cust_name" placeholder="Enter customer name" required>
 			</div>
 		</div>
 		
 
 <div class="col-md-3">
 	<div class="form-group">
-	<label>Invoice date <span class="text-danger">*</span></label>
+	<label >Invoice date <span class="text-danger">*</span></label>
 	<div class="cal-icon">
-	<input type="date" name="inv_date">
+	<input type="date" name="inv_date" required>
 	</div>
 	</div>
 	</div>
@@ -229,14 +229,15 @@ if (isset($_POST["savebtn"]))
 <div class="col-md-3">
 	<div class="form-group">
 		<label>Amount</label>
-		<input class="form-control" type="text" name="inv_amount" >
+		<input class="form-control" type="text" name="inv_amount" placeholder="Enter amount" required>
 		</div>
 </div>
 
 <div class="col-md-3">
 <div class="form-group">
 <label>In/Out Customer</label>
-<select class="form-control" id="sel1" name="inv_status">
+<select class="form-control" id="sel1" name="inv_status" required>
+<option value="">Select an option</option>
 <option value="in_customer">In Customer</option>
 <option value="out_customer">Out Customer</option>
 </select>
