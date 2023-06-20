@@ -1,3 +1,5 @@
+<?php include("dataconnection.php"); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -87,7 +89,7 @@
 				<li class="submenu"> <a href="#"><i class="fas fa-user"></i> <span> Customers </span> <span class="menu-arrow"></span></a>
 					<ul class="submenu_class" style="display: none;">
 						<li><a href="all-customer.html"> All customers </a></li>
-						<li><a href="edit-customer.html"> Edit Customer </a></li>
+						<li><a href="edit-customer.php"> Edit Customer </a></li>
 						<li><a href="add-customer.php"> Add Customer </a></li>
 					</ul>
 				</li>
@@ -114,9 +116,8 @@
 					</ul>
 				</li>
 
-				
-			
-				
+				<li> <a href="index.html"><i class="fas fa-sign-in-alt"></i> <span>GTY Hotel Website</span></a> </li>
+		
 			</ul>
 		</div>
 	</div>
@@ -134,20 +135,20 @@
 
 <div class="row">
 	<div class="col-lg-12">
-	<form>
+	<form name="updatefrm" method="post" action="">
 	
 	<div class="row formtype">
 	<div class="col-md-4">
 	<div class="form-group">
 	<label>Customer ID</label>
-	<input class="form-control" type="text" value="GTY-0001">
+	<input class="form-control" type="text" value="1" name="customer_id" >
 	</div>
 	</div>
 	
 	<div class="col-md-4">
 	<div class="form-group">
 	<label>Name</label>
-	<input class="form-control" type="text" id="sel1" name="sellist1">
+	<input class="form-control" type="text" id="sel1" name="customer_name">
 	</div>
 	</div>
 	</div>
@@ -157,34 +158,34 @@
 	<div class="col-md-4">
 	<div class="form-group">
 	<label>Email ID</label>
-	<input type="text" class="form-control" id="usr">
+	<input type="text" class="form-control" id="usr" name="customer_email">
 	</div>
 	</div>
 	<div class="col-md-4">
 	<div class="form-group">
 	<label>Phone Number</label>
-	<input type="text" class="form-control" id="usr1">
+	<input type="text" class="form-control" id="usr1"  name="customer_phone_number">
+	</div>
+	</div>
+	</div>
+
+	<div class="col-md-4">
+	<div class="form-group">
+	<label>Customer Password</label>
+	<input class="form-control" type="text"  name="customer_password">
 	</div>
 	</div>
 	
-	<div class="col-md-4">
-		<div class="form-group">
-	   <label>Registration Date</label>
-	   <div class="cal-icon">
-	   <input type="text" class="form-control datetimepicker">
-	   </div>
-	   </div>
-	   </div>
+	</div>
+	</div>
 
-	</div>
-	</form>
-	</div>
-	</div>
-<button type="button" class="btn btn-primary buttonedit">Save</button>
+<input type="submit" class="btn btn-primary buttonedit" name="savebtn" value="Save Changes">
+</form>
+
 </div>
 </div>
 
-</div>
+
 
 
 <script src="assets/js/jquery-3.5.1.min.js"></script>
@@ -210,3 +211,41 @@
 	</script>
 </body>
 </html>
+
+<?php
+
+if(isset($_GET["edit"]))
+		{
+		 	$cid=$_GET["customer_id"];
+			$result = mysqli_query($connect, "SELECT * FROM customer WHERE customer_id='$cid'");
+			$row = mysqli_fetch_assoc($result);
+        }
+
+if(isset($_POST["savebtn"])) 	
+{
+	$cid= $_POST["customer_id"];
+	$cname= $_POST["customer_name"];
+	$cemail=$_POST["customer_email"];
+	$cphonenumber=$_POST["customer_phone_number"];
+	$cpassword=$_POST["customer_password"];
+	?><script>console.log("<?php echo $cname; ?>") </script>
+	<?php
+
+	$success=mysqli_query($connect,"UPDATE customer SET customer_id='$cid', customer_name='$cname', customer_email='$cemail', customer_phone_number='$cphonenumber',customer_password=$cpassword WHERE customer_id='$cid'");
+	
+	if($success)
+	{
+		?>
+	<script>
+		alert("Customer Table Updated");
+	</script>
+	
+		<?php
+	}
+
+	
+	header( "refresh:0.5; url=edit-customer.php");
+	
+}
+
+?>

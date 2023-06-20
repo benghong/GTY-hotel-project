@@ -11,7 +11,7 @@
             alert("Record Deleted.")
         </script>
         <?php
-        header("refresh:0.5; url=all-rooms.php");
+        header("refresh:0.5; url=roomtypelist.php");
     }
 ?>
 
@@ -86,9 +86,10 @@
 						</li>
 						<li class="submenu"> <a href="#"><i class="fas fa-key"></i> <span> Rooms </span> <span class="menu-arrow"></span></a>
 							<ul class="submenu_class" style="display: none;">
-								<li><a href="all-rooms.html">All Rooms </a></li>
-								<li><a href="edit-room.html"> Edit Rooms </a></li>
-								<li><a href="add-room.html"> Add Rooms </a></li>
+								<li><a href="all-rooms.php">All Rooms </a></li>
+								<li><a href="roomtypelist.php">Room Type List </a></li> <!--add room type list-->
+								<li><a href="edit-room.php"> Edit Rooms </a></li>
+								<li><a href="add-room.php"> Add Rooms </a></li>
 							</ul>
 						</li>
 		
@@ -133,7 +134,7 @@
 											<th>Room code:</th>
 											<th>Room Type:</th>
 											<th>Room Price</th>
-											<th>Room Details</th>
+											<th>Room Stock</th>
 											<th class="text-right" colspan="3">Actions</th>
 											</tr>
 										</thead>
@@ -196,8 +197,6 @@
 													</div>
 												</td>
 											</tr>
-											
-
 											 -->
 
 											 <?php
@@ -211,7 +210,7 @@
 														<td><?php echo $row["room_stock"]?></td>
 														
 														<td><a href="edit-room.php?edit&code=<?php echo $row["room_code"];?>">Edit</a></td>
-														<td><a href="all-rooms.php?del&code=<?php echo $row ["room_code"];?>" onclick="return confirmation();">Delete</a></td>
+														<td><a href="roomtypelist.php?del&code=<?php echo $row ["room_code"];?>" onclick="return confirmation();">Delete</a></td>
 														<td><a href="bookingform.php?buy&code=<?php echo $row["room_code"];?>">Booking Now</a></td>
 													</tr>
 											<?php
