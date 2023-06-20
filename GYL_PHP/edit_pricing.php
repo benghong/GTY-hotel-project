@@ -1,4 +1,38 @@
-<?php include("dataconnection.php"); ?>
+<?php include("dataconnection.php");
+
+if(isset($_GET["edit"]))
+		{
+		 $roomtype=$_GET["roomtype"];
+			
+
+			$result = mysqli_query($connect, "SELECT * FROM pricing WHERE room_type='$roomtype'");
+			$row = mysqli_fetch_assoc($result);
+        }
+
+if(isset($_POST["savebtn"])) 	
+{
+    $room_type=$_POST["room_type"];
+	$room_price=$_POST["room_price"];
+	$room_facilities=$_POST["room_facilities"];
+
+	$sql=mysqli_query($connect,"UPDATE pricing SET room_type='$room_type',room_price='$room_price',room_facilities='$room_facilities' WHERE room_type='$roomtype'");
+	
+	if($sql)
+	{
+		?>
+	<script>
+		alert("Pricing Update");
+	</script>
+	
+		<?php
+	}
+
+	
+	header( "refresh:0.5; url=pricing_list.php" );
+	
+}
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -24,20 +58,109 @@
 <body>
 
 <div class="main-wrapper">
+<div class="header">
+
+<div class="header-left">
+<a href="index.html" class="logo">
+<img src="assets/img/hotel_logo.png" width="50" height="70" alt="logo">
+<span class="logoclass">HOTEL</span>
+</a>
+<a href="index.html" class="logo logo-small">
+<img src="assets/img/hotel_logo.png" alt="Logo" width="30" height="30">
+</a>
+</div>
+
+<a href="javascript:void(0);" id="toggle_btn">
+<i class="fe fe-text-align-left"></i>
+</a>
+
+<a class="mobile_btn" id="mobile_btn">
+<i class="fas fa-bars"></i>
+</a>
 
 
+<ul class="nav user-menu">
 
-<?php
-if(isset($_GET["edit"]))
-		{
-		 $roomtype=$_GET["roomtype"];
+
+<li class="nav-item dropdown has-arrow">
+<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+<span class="user-img"><img class="rounded-circle" src="assets/img/profiles/avatar-01.jpg" width="31" alt="user"></span>
+</a>
+<div class="dropdown-menu">
+<div class="user-header">
+<div class="avatar avatar-sm">
+<img src="assets/img/profiles/avatar-01.jpg" alt="User Image" class="avatar-img rounded-circle">
+</div>
+<div class="user-text">
+	<h6>User</h6>
+</div>
+</div>
+<a class="dropdown-item" href="profile.html">My Profile</a>
+<a class="dropdown-item" href="login.html">Logout</a>
+</div>
+</li>
+
+</ul>
+
+</div>
+
+
+<div class="sidebar" id="sidebar">
+	<div class="sidebar-inner slimscroll">
+		<div id="sidebar-menu" class="sidebar-menu">
+			<ul>
+				<li> <a href="index.html"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a> </li>
+				<li class="list-divider"></li>
+
+				<li class="submenu"> <a href="#"><i class="fas fa-suitcase"></i> <span> Booking </span> <span class="menu-arrow"></span></a>
+					<ul class="submenu_class" style="display: none;">
+						<li><a href="all-booking.html"> All Booking </a></li>
+						<li><a href="edit-booking.html"> Edit Booking </a></li>
+						<li><a href="add-booking.html"> Add Booking </a></li>
+					</ul>
+				</li>
+				<li class="submenu"> <a href="#"><i class="fas fa-user"></i> <span> Customers </span> <span class="menu-arrow"></span></a>
+					<ul class="submenu_class" style="display: none;">
+						<li><a href="all-customer.html"> All customers </a></li>
+						<li><a href="edit-customer.html"> Edit Customer </a></li>
+						<li><a href="add-customer.html"> Add Customer </a></li>
+					</ul>
+				</li>
+				<li class="submenu"> <a href="#"><i class="fas fa-key"></i> <span> Rooms </span> <span class="menu-arrow"></span></a>
+					<ul class="submenu_class" style="display: none;">
+						<li><a href="all-rooms.html">All Rooms </a></li>
+						<li><a href="edit-room.html"> Edit Rooms </a></li>
+						<li><a href="add-room.html"> Add Rooms </a></li>
+					</ul>
+				</li>
+
+				<li> <a href="pricing.html"><i class="far fa-money-bill-alt"></i> <span>Pricing</span></a> </li>
+
+				<li class="submenu"> <a href="#"><i class="fas fa-key"></i> <span> Calender </span> <span class="menu-arrow"></span></a>
+					<ul class="submenu_class" style="display: none;">
+				<li> <a href="calendar.html"><i class="fas fa-calendar-alt"></i> <span>Event Calendar</span></a> </li>
+				<li><a href="room-calender.html">Room Calender </a></li>
+					</ul>
+</li>
+				
+				
+				<li class="submenu"> <a href="#"><i class="fe fe-table"></i> <span> Reports </span> <span class="menu-arrow"></span></a>
+					<ul class="submenu_class" style="display: none;">
+						<li><a href="invoices.html">Invoice Report </a></li>
+					</ul>
+				</li>
+
+				
 			
+				
+			</ul>
+		</div>
+	</div>
+</div>
 
-			$result = mysqli_query($connect, "SELECT * FROM pricing WHERE room_type='$roomtype'");
-			$row = mysqli_fetch_assoc($result);
-        }
 
-?>
+
+
 
 <div class="page-wrapper">
 <div class="content container-fluid">
@@ -70,7 +193,8 @@ if(isset($_GET["edit"]))
 <div class="col-md-4">
 <div class="form-group">
 <label>Room Facilities</label>
-<textarea cols="30" rows="6" class="form-control" name="room_facilities" value="<?php echo $row['room_facilities']; ?>"></textarea>
+<textarea cols="30" rows="6" class="form-control" name="room_facilities"><?php echo $row['room_facilities']; ?></textarea>
+
 </div>
 </div>
 
@@ -108,28 +232,3 @@ if(isset($_GET["edit"]))
 </body>
 </html>
 
-<?php
-if(isset($_POST["savebtn"])) 	
-{
-    $room_type=$_POST["room_type"];
-	$room_price=$_POST["room_price"];
-	$room_facilities=$_POST["room_facilities"];
-
-	$sql=mysqli_query($connect,"UPDATE pricing SET room_type='$room_type',room_price='$room_price',room_facilities='$room_facilities' WHERE room_type='$roomtype'");
-	
-	if($sql)
-	{
-		?>
-	<script>
-		alert("Pricing Update");
-	</script>
-	
-		<?php
-	}
-
-	
-	header( "refresh:0.5; url=pricing_list.php" );
-	
-}
-
-?>
