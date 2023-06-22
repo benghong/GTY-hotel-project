@@ -667,11 +667,11 @@
           </div>
           <div class="icon flex">
             <div class="i">
-            <a href="https://www.gmail.com"> <i class="far fa-envelope"></i></a>
+            <a href="contact us.html"> <i class="far fa-envelope"></i></a>
             </div>
             <div class="text">
-              <h3>Email</h3>
-              <p>1211206859@student.edu.my</p>
+              <h3>Contact Us</h3>
+              
             </div>
           </div>
         </div>
