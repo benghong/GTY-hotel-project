@@ -15,7 +15,7 @@ if (isset($_POST["savebtn"]))
 		alert("Record is updated!");
 	</script>
 	<?php
-	header("refresh:0.5 url=invoice_list.php");
+	header("refresh:0.5 url=invoices.php");
 }
 
 ?>
@@ -147,9 +147,7 @@ if (isset($_POST["savebtn"]))
 <div class="col-md-3">
 	<div class="form-group">
 	<label>Invoice date <span class="text-danger">*</span></label>
-	<div class="cal-icon">
-	<input type="date" name="inv_date" value="<?php echo $row['invoice_date'];  ?> " required>
-	</div>
+	<input type="date" name="inv_date" value="<?php echo date('Y-m-d', strtotime($row['invoice_date'])); ?>" required>
 	</div>
 	</div>
 
@@ -233,10 +231,7 @@ if (isset($_POST["savebtn"]))
 		alert("Record is updated!");
 	</script>
 	<?php
-	header("refresh:0.5 url=invoice_list.php");
+	header("refresh:0.5 url=invoices.php");
 }
 
 ?>
-
-	
-	

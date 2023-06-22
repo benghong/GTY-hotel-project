@@ -1,7 +1,52 @@
-<?php include("dataconnection.php"); ?>
+<?php
+include("dataconnection.php");
 
-<html>
-<head>
+if (isset($_POST["savebtn"])) 	
+{
+	$invnum=$_POST["inv_num"];
+	$cname=$_POST["cust_name"];
+	$invdate=$_POST["inv_date"];
+	$invamount=$_POST["inv_amount"];
+	$invstatus=$_POST["inv_status"];
+
+	$result=mysqli_query($connect,"SELECT * FROM invoice WHERE invoice_number='$invnum'");
+
+
+    $count=mysqli_num_rows($result);
+	
+	if ($count != 0)
+	{
+	?>
+		<script>
+			alert("The Invoice Number is already in use.Please change!");
+		</script>
+	<?php
+	}
+	else
+	{
+	
+		$result = mysqli_query($connect, "SELECT MAX(invoice_number) AS max_inv_num FROM invoice");
+        $row = mysqli_fetch_assoc($result);
+        $latest_inv_num = $row['max_inv_num'];
+        $new_inv_num = $latest_inv_num + 1;
+
+        // Insert into the database
+        $sql=mysqli_query($connect,"INSERT INTO invoice(invoice_number,invoice_customer_name,invoice_date,invoice_amount,invoice_status) VALUES ('$new_inv_num','$cname','$invdate','$invamount','$invstatus')");
+
+        if($sql)
+        {
+            ?>
+            <script>
+                alert("Record Saved!");
+            </script>
+            <?php
+        }
+    }
+    header( "refresh:0.5; url=invoices.php" );
+    exit;
+}
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -29,7 +74,6 @@
 <body>
 
 <div class="main-wrapper">
-
 
 <div class="header">
 			<div class="header-left">
@@ -79,11 +123,6 @@
 				</div>
 			</div>
 		</div>
-	
-
-
-
-
 
 
 <div class="page-wrapper">
@@ -102,7 +141,14 @@
 	<div class="col-md-3">
 	<div class="form-group">
 		<label>Invoice Number</label>
-		<input class="form-control" type="text" name="inv_num" >
+		<?php
+                                    // Fetch the latest invoice number from the database
+                                    $result = mysqli_query($connect, "SELECT MAX(invoice_number) AS max_inv_num FROM invoice");
+                                    $row = mysqli_fetch_assoc($result);
+                                    $latest_inv_num = $row['max_inv_num'];
+                                    $new_inv_num = $latest_inv_num + 1;
+                                    ?>
+		<input class="form-control" type="text" name="inv_num" value="<?php echo $new_inv_num; ?>" readonly>
 		</div>
 	</div>
 
@@ -113,17 +159,15 @@
 	<div class="col-md-3">
 		<div class="form-group">
 			<label>Customer Name</label>
-			<input class="form-control" type="text" id="sel1" name="cust_name">
+			<input class="form-control" type="text" id="sel1" name="cust_name" placeholder="Enter customer name" required>
 			</div>
 		</div>
 		
 
 <div class="col-md-3">
 	<div class="form-group">
-	<label>Invoice date <span class="text-danger">*</span></label>
-	<div class="cal-icon">
-	<input class="form-control datetimepicker" type="text" name="inv_date">
-	</div>
+	<label >Invoice date <span class="text-danger">*</span></label>
+	<input type="date" name="inv_date" required>
 	</div>
 	</div>
 
@@ -131,14 +175,15 @@
 <div class="col-md-3">
 	<div class="form-group">
 		<label>Amount</label>
-		<input class="form-control" type="text" name="inv_amount" >
+		<input class="form-control" type="text" name="inv_amount" placeholder="Enter amount" required>
 		</div>
 </div>
 
 <div class="col-md-3">
 <div class="form-group">
 <label>In/Out Customer</label>
-<select class="form-control" id="sel1" name="inv_status">
+<select class="form-control" id="sel1" name="inv_status" required>
+<option value="">Select an option</option>
 <option value="in_customer">In Customer</option>
 <option value="out_customer">Out Customer</option>
 </select>
@@ -149,10 +194,11 @@
 
 
 
+
 </div>
 
 
-<p><input type="submit" name="savebtn" value="Save">
+<input type="submit" class="btn btn-primary buttonedit" name="savebtn" value="Add Invoice">
 </form>
 </div>
 </div>
@@ -186,48 +232,3 @@
 	</script>
 </body>
 </html>
-
-<?php
-
-if (isset($_POST["savebtn"])) 	
-{
-	$invnum=$_POST["inv_num"];
-	$cname=$_POST["cust_name"];
-	$invdate=$_POST["inv_date"];
-	$invamount=$_POST["inv_amount"];
-	$invstatus=$_POST["inv_status"];
-
-	$result=mysqli_query($connect,"SELECT * FROM invoice WHERE invoice_number='$invnum'");
-
-
-    $count=mysqli_num_rows($result);
-	
-	if ($count != 0)
-	{
-	?>
-		<script>
-			alert("The Invoice Number is already in use.Please change!");
-		</script>
-	<?php
-	}
-	else
-	{
-	
-	   //else insert into database
-		$sql=mysqli_query($connect,"INSERT INTO invoice(invoice_number,invoice_customer_name,invoice_date,invoice_amount,invoice_status) VALUES ('$invnum','$cname','$invdate','$invamount','$invstatus')");
-
-		if($sql)
-		{
-			?>
-				<script>
-					alert("Record Saved!");
-				</script>
-
-			<?php
-		}
-	
-	
-	}
-}
-
-?>

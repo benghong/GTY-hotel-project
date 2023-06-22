@@ -52,7 +52,7 @@
           <li> <a href="#gallary">gallery</a> </li>
           <li> <a href="bookingform.php">booking</a> </li>
           <li> <a href="#contact">contact</a> </li>
-          <li> <a href="aboutus.html">About us</a> </li>
+          <li> <a href="Aboutus.html">About us</a> </li>
         </ul>
         <div class="hamburger">
         </div>
@@ -627,7 +627,7 @@
         <div class="box">
           <h2>Quick Links</h2>
           <ul>
-          <a href="aboutus.html"> <li><i class="fas fa-angle-double-right"></i>About Us</li> </a>
+          <a href="Aboutus.html"> <li><i class="fas fa-angle-double-right"></i>About Us</li> </a>
           <a href="bookingform.php"><li><i class="fas fa-angle-double-right"></i>Booking Form</li></a>
           <a href="#about"><li><i class="fas fa-angle-double-right"></i>Introduction</li></a>
           <a href="#home">  <li><i class="fas fa-angle-double-right"></i>Home</li></a>

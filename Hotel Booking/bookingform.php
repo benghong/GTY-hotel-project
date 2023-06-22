@@ -64,9 +64,9 @@
         <div class="text">
           <h1 style="margin-top:-75px;">Welcome to GTY HOTEL</h1>
           <p>Welcome to our exquisite hotel, nestled in a breathtaking location alongside a stunningly beautiful beach. As you step into our serene paradise, you will be greeted by the gentle sound of waves, the soft caress of sea breeze, and the mesmerizing views of the sparkling ocean. Our hotel offers an exceptional experience, where luxury meets nature's splendor.</p>
-			
+			<br><br><br><br><br><br><br><br><br><br><br><br>
 
-          <button>BOOKING NOW</button>
+          <!-- <button>BOOKING NOW</button> -->
         </div>
       </div>
       <div class="image">
@@ -163,7 +163,7 @@
 						</select>
 					</div>
 
-					<button class="btn" name="btn">Submit</button>
+					<button> <a href="creditcardindex.php" class="btn" name="btn">Submit</a></button>
 				</form>
 		</div>
 	</div>

@@ -12,7 +12,7 @@ if(isset($_GET["edit"]))
 if(isset($_POST["savebtn"])) 	
 {
     $room_type=$_POST["room_type"];
-	$room_price=$_POST["room_prce"];
+	$room_price=$_POST["room_price"];
 	$room_facilities=$_POST["room_facilities"];
 
 	$sql=mysqli_query($connect,"UPDATE pricing SET room_type='$room_type',room_price='$room_price',room_facilities='$room_facilities' WHERE room_type='$roomtype'");
@@ -58,6 +58,8 @@ if(isset($_POST["savebtn"]))
 <body>
 
 <div class="main-wrapper">
+<div class="header">
+
 <div class="header">
 			<div class="header-left">
 				<a href="index.php" class="logo"> <img src="assets/img/hotel_logo.png" width="50" height="70" alt="logo"> <span class="logoclass">HOTEL</span> </a>
@@ -106,6 +108,7 @@ if(isset($_POST["savebtn"]))
 				</div>
 			</div>
 		</div>
+
 
 
 
